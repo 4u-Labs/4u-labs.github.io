@@ -1,16 +1,127 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f19">
+
+  <!-- Primary Meta Tags -->
   <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="title" content="{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}">
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  
+  <meta name="author" content="Fabiano Braga // 4U.IA.BR">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ', ' }}, {% endif %}webassembly, webgpu, pwa, zeroknowledge, corelclone, cadclone, photoclone, 4u.ia.br, engenharia de software">
+
+  <!-- Canonical & Multilingual Alternates -->
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <link rel="alternate" hreflang="pt-BR" href="{{ page.url | replace:'index.html','' | absolute_url }}?lang=pt">
+  <link rel="alternate" hreflang="en-US" href="{{ page.url | replace:'index.html','' | absolute_url }}?lang=en">
+  <link rel="alternate" hreflang="x-default" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/fav.webp' | relative_url }}">
+
+  <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:image" content="https://4u.ia.br/capa.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ site.title }}">
+
+  {% if page.layout == 'post' %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  <meta property="article:author" content="https://www.linkedin.com/in/fbr4g4/">
+  {% for tag in page.tags %}
+  <meta property="article:tag" content="{{ tag }}">
+  {% endfor %}
+  {% endif %}
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@fbr4g4">
+  <meta name="twitter:creator" content="@fbr4g4">
+  <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="twitter:image" content="https://4u.ia.br/capa.webp">
+
+  <!-- Schema.org JSON-LD Structured Data for Google -->
+  {% if page.layout == 'post' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": {{ page.title | jsonify }},
+    "description": {{ page.excerpt | strip_html | strip_newlines | truncate: 200 | jsonify }},
+    "image": "https://4u.ia.br/capa.webp",
+    "inLanguage": ["pt-BR", "en-US"],
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | replace:'index.html','' | absolute_url }}"
+    },
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "author": {
+      "@type": "Person",
+      "name": "Fabiano Braga",
+      "url": "https://www.linkedin.com/in/fbr4g4/",
+      "sameAs": [
+        "https://github.com/4u-Labs",
+        "https://x.com/fbr4g4",
+        "https://www.instagram.com/fbr4g4/"
+      ]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "4U.IA.BR",
+      "url": "https://4u.ia.br",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://4u.ia.br/fav.webp"
+      }
+    }
+  }
+  </script>
+  {% else %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "4U.IA.BR Tech Blog",
+    "url": "https://4u-labs.github.io",
+    "description": {{ site.description | jsonify }},
+    "inLanguage": ["pt-BR", "en-US"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "4U.IA.BR",
+      "url": "https://4u.ia.br",
+      "logo": "https://4u.ia.br/fav.webp",
+      "sameAs": [
+        "https://github.com/4u-Labs",
+        "https://www.linkedin.com/in/fbr4g4/",
+        "https://x.com/fbr4g4",
+        "https://www.instagram.com/fbr4g4/",
+        "https://www.youtube.com/@fbr4g4"
+      ]
+    }
+  }
+  </script>
+  {% endif %}
+
+  <!-- Web Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 </head>
