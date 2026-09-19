@@ -1,0 +1,64 @@
+---
+layout: default
+---
+<div class="hero-section">
+  <div class="hero-container">
+    <div class="hero-badge">
+      <span class="pulse-dot"></span> <span>4U.IA.BR // ENGENHARIA & PESQUISA</span>
+    </div>
+    <h1 class="hero-title">
+      Reprogramando a experiência de <span class="gradient-text">software</span>.
+    </h1>
+    <p class="hero-subtitle">
+      Artigos técnicos, arquitetura de sistemas, WebAssembly, Inteligência Artificial no navegador e os bastidores de mais de 80 aplicações profissionais soberanas.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-box">
+        <span class="stat-number">82+</span>
+        <span class="stat-label">WebApps Criados</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number">0ms</span>
+        <span class="stat-label">Instalação</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Client-Side</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content-container">
+  <div class="section-header">
+    <h2><i class="fas fa-newspaper text-accent"></i> Publicações Recentes</h2>
+    <span class="article-count">{{ site.posts.size }} artigos</span>
+  </div>
+
+  <div class="posts-grid">
+    {% for post in site.posts %}
+      <article class="post-card">
+        <div class="card-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d de %b, %Y" }}</time>
+          {% if post.categories.first %}
+            <span class="category-pill">{{ post.categories.first }}</span>
+          {% endif %}
+        </div>
+        <h3 class="card-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        <p class="card-excerpt">
+          {{ post.excerpt | strip_html | truncate: 150 }}
+        </p>
+        <div class="card-footer">
+          <div class="tags-list">
+            {% for tag in post.tags limit:3 %}
+              <span class="tag">#{{ tag }}</span>
+            {% endfor %}
+          </div>
+          <a href="{{ post.url | relative_url }}" class="read-more">Ler artigo <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</div>

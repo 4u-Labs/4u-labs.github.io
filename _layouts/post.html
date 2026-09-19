@@ -1,0 +1,52 @@
+---
+layout: default
+---
+<article class="post-article">
+  <header class="post-header">
+    <div class="content-container">
+      <div class="post-meta-top">
+        <a href="{{ '/' | relative_url }}" class="back-link"><i class="fas fa-arrow-left"></i> Todos os artigos</a>
+        {% if page.categories.first %}
+          <span class="category-pill">{{ page.categories.first }}</span>
+        {% endif %}
+      </div>
+      <h1 class="post-title">{{ page.title }}</h1>
+      <div class="post-info">
+        <div class="author-info">
+          <div class="author-avatar"><i class="fas fa-code"></i></div>
+          <div>
+            <span class="author-name">{{ page.author | default: site.author.name }}</span>
+            <span class="post-date">{{ page.date | date: "%d de %B de %Y" }}</span>
+          </div>
+        </div>
+        <div class="post-share">
+          <button class="copy-link-btn" onclick="navigator.clipboard.writeText(window.location.href); alert('Link copiado!');">
+            <i class="fas fa-link"></i> Copiar Link
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content-container post-body">
+    {{ content }}
+    
+    <div class="post-tags-section">
+      <h4>Tópicos relacionados:</h4>
+      <div class="tags-list">
+        {% for tag in page.tags %}
+          <span class="tag">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="post-cta-box">
+      <div class="cta-icon"><i class="fas fa-rocket"></i></div>
+      <div class="cta-content">
+        <h3>Experimente o Ecossistema 4U.IA.BR</h3>
+        <p>Acesse mais de 80 aplicações web de alta performance sem instalação e 100% gratuitas.</p>
+        <a href="https://4u.ia.br" target="_blank" rel="noopener" class="cta-btn">Explorar Apps Agora</a>
+      </div>
+    </div>
+  </div>
+</article>

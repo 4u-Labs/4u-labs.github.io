@@ -1,0 +1,21 @@
+<header class="site-header">
+  <div class="header-container">
+    <div class="brand">
+      <a href="{{ '/' | relative_url }}" class="brand-link">
+        <span class="brand-icon"><i class="fas fa-terminal"></i></span>
+        <span class="brand-text">4U<span class="accent">.IA.BR</span></span>
+        <span class="badge-tag">DEV BLOG</span>
+      </a>
+    </div>
+    <nav class="site-nav">
+      <a href="{{ '/' | relative_url }}" class="nav-item {% if page.url == '/' %}active{% endif %}">Início</a>
+      <a href="{{ '/sobre/' | relative_url }}" class="nav-item {% if page.url == '/sobre/' %}active{% endif %}">Sobre</a>
+      <a href="https://4u.ia.br" target="_blank" rel="noopener" class="nav-item nav-btn">
+        <i class="fas fa-external-link-alt"></i> Explorar 80+ Apps
+      </a>
+      <a href="https://github.com/4u-Labs" target="_blank" rel="noopener" class="nav-item icon-btn" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+    </nav>
+  </div>
+</header>

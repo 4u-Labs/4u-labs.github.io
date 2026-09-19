@@ -1,0 +1,28 @@
+title: "4U.IA.BR // Tech Blog"
+email: "fabianombraga@gmail.com"
+description: "Engenharia de Software, WebAssembly, IA no Navegador, WebGPU e os bastidores do ecossistema 4U.IA.BR."
+baseurl: ""
+url: "https://4u-labs.github.io"
+author:
+  name: "4U.IA.BR"
+  avatar: "/assets/images/logo.png"
+  bio: "Reprogramando a experiência de software. +80 aplicações premium rodando 100% no navegador com zero instalação e privacidade total."
+  github: "4u-Labs"
+  website: "https://4u.ia.br"
+
+permalink: /:year/:month/:day/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
