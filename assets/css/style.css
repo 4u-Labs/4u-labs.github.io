@@ -645,3 +645,124 @@ a:hover {
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
   .site-nav .nav-btn { display: none; }
 }
+
+/* Social Pills Grid in Footer */
+.social-pills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #162035;
+  border: 1px solid #233252;
+  color: #cbd5e1 !important;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.social-pill i {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.social-pill:hover {
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+
+.social-pill:hover i {
+  transform: scale(1.15);
+}
+
+.social-pill.linkedin:hover {
+  background: #0a66c2;
+  border-color: #0a66c2;
+}
+
+.social-pill.instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  border-color: #dc2743;
+}
+
+.social-pill.youtube:hover {
+  background: #ff0000;
+  border-color: #ff0000;
+}
+
+.social-pill.x-twitter:hover {
+  background: #000000;
+  border-color: #ffffff;
+}
+
+.social-pill.github:hover {
+  background: #24292e;
+  border-color: #6e5494;
+}
+
+.social-pill.facebook:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+}
+
+.social-pill.alternativeto:hover {
+  background: #00a8ff;
+  border-color: #00a8ff;
+  color: #000 !important;
+}
+
+.social-pill.portal:hover {
+  background: #06b6d4;
+  border-color: #06b6d4;
+  color: #000 !important;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: var(--accent-cyan);
+}
+
+.footer-links a i {
+  color: var(--accent-cyan);
+  font-size: 0.8rem;
+}
+
+.footer-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: var(--accent-emerald);
+  font-family: var(--font-mono);
+}
+
+.status-indicator {
+  width: 6px;
+  height: 6px;
+  background: var(--accent-emerald);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-emerald);
+}
+
+.footer-badges {
+  display: flex;
+  gap: 16px;
+}
