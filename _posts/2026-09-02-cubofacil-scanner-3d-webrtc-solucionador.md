@@ -5,7 +5,10 @@ date: 2026-09-02 15:00:00 -0300
 categories: [Automação]
 tags: [cubomagico, threejs, webrtc, algoritmo, kociemba]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "CuboFácil 4U: WebRTC Camera Scanner, 3D Modeling, and Rubik's Cube Solver"
+excerpt_en: "Computer vision color classification and Kociemba Two-Phase algorithm to solve any cube in under 20 moves."
 ---
+
 
 Resolver um Cubo Mágico 3x3x3 (Cubo de Rubik) é um dos maiores quebra-cabeças lógicos da humanidade, mas o processo de aprender dezenas de sequências de algoritmos (CFOP / Fridrich) costuma afastar iniciantes.
 

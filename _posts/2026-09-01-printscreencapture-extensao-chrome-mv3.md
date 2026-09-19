@@ -5,7 +5,10 @@ date: 2026-09-01 10:00:00 -0300
 categories: [Extensões]
 tags: [chrome, extensao, mv3, printscreencapture, produtividade]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "PrintScreen Capture: Full-Page Scrolling Screen Capture Under Chrome Manifest V3"
+excerpt_en: "Chrome MV3 extension architecture with automated viewport stitching, vector annotations, and zero bloat."
 ---
+
 
 A migração obrigatória do ecossistema de extensões do Google Chrome para o **Manifest V3 (MV3)** quebrou centenas de utilitários populares de captura de tela que dependiam de páginas de fundo persistentes (persistent background pages).
 

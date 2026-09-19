@@ -5,7 +5,10 @@ date: 2026-09-03 18:00:00 -0300
 categories: [Retrogaming]
 tags: [pinball, retrogaming, webassembly, wasm, nostalgia]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "3D Pinball Space Cadet: Classic Windows Game Ported to WebAssembly (WASM) at 60 FPS"
+excerpt_en: "Decompiled C++ source compiled to WASM via Emscripten with native physics and synthesized Web Audio."
 ---
+
 
 Quem usou computadores com Windows 95, 98, 2000 ou XP certamente guarda na memória as horas jogando o lendário **3D Pinball Space Cadet**. Criado originalmente pela Cinematronics e publicado pela Maxis, o jogo se tornou um marco afetivo de uma geração.
 

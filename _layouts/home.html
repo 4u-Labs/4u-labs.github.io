@@ -4,26 +4,39 @@ layout: default
 <div class="hero-section">
   <div class="hero-container">
     <div class="hero-badge">
-      <span class="pulse-dot"></span> <span>4U.IA.BR // ENGENHARIA & PESQUISA</span>
+      <span class="pulse-dot"></span> 
+      <span data-lang="pt">4U.IA.BR // ENGENHARIA & PESQUISA</span>
+      <span data-lang="en">4U.IA.BR // ENGINEERING & RESEARCH</span>
     </div>
     <h1 class="hero-title">
-      Reprogramando a experiência de <span class="gradient-text">software</span>.
+      <span data-lang="pt">Reprogramando a experiência de <span class="gradient-text">software</span>.</span>
+      <span data-lang="en">Reprogramming the <span class="gradient-text">software</span> experience.</span>
     </h1>
     <p class="hero-subtitle">
-      Artigos técnicos, arquitetura de sistemas, WebAssembly, Inteligência Artificial no navegador e os bastidores de mais de 80 aplicações profissionais soberanas.
+      <span data-lang="pt">Artigos técnicos, arquitetura de sistemas, WebAssembly, Inteligência Artificial no navegador e os bastidores de mais de 80 aplicações profissionais soberanas.</span>
+      <span data-lang="en">Technical deep dives, systems architecture, WebAssembly, browser-based AI, and the engineering behind 80+ sovereign web applications.</span>
     </p>
     <div class="hero-stats">
       <div class="stat-box">
         <span class="stat-number">82+</span>
-        <span class="stat-label">WebApps Criados</span>
+        <span class="stat-label">
+          <span data-lang="pt">WebApps Criados</span>
+          <span data-lang="en">WebApps Built</span>
+        </span>
       </div>
       <div class="stat-box">
         <span class="stat-number">0ms</span>
-        <span class="stat-label">Instalação</span>
+        <span class="stat-label">
+          <span data-lang="pt">Instalação</span>
+          <span data-lang="en">Install</span>
+        </span>
       </div>
       <div class="stat-box">
         <span class="stat-number">100%</span>
-        <span class="stat-label">Client-Side</span>
+        <span class="stat-label">
+          <span data-lang="pt">Client-Side</span>
+          <span data-lang="en">Client-Side</span>
+        </span>
       </div>
     </div>
   </div>
@@ -32,21 +45,56 @@ layout: default
 <div class="content-container">
   <div class="section-header">
     <div>
-      <h2><i class="fas fa-newspaper text-accent"></i> Publicações Técnicas</h2>
-      <p class="section-desc">Explore os artigos por categoria ou leia a documentação dos nossos apps</p>
+      <h2>
+        <i class="fas fa-newspaper text-accent"></i> 
+        <span data-lang="pt">Publicações Técnicas</span>
+        <span data-lang="en">Technical Publications</span>
+      </h2>
+      <p class="section-desc">
+        <span data-lang="pt">Explore os artigos por categoria ou leia a documentação dos nossos apps</span>
+        <span data-lang="en">Explore articles by category or read our webapps documentation</span>
+      </p>
     </div>
-    <span class="article-count">{{ site.posts.size }} artigos</span>
+    <span class="article-count">
+      {{ site.posts.size }} 
+      <span data-lang="pt">artigos</span>
+      <span data-lang="en">articles</span>
+    </span>
   </div>
 
   <div class="category-filters">
-    <button class="filter-btn active" data-filter="all">Todos ({{ site.posts.size }})</button>
-    <button class="filter-btn" data-filter="Engenharia">Engenharia</button>
-    <button class="filter-btn" data-filter="Design">Design</button>
-    <button class="filter-btn" data-filter="Segurança">Segurança</button>
-    <button class="filter-btn" data-filter="Produtividade">Produtividade</button>
-    <button class="filter-btn" data-filter="Automação">Automação</button>
-    <button class="filter-btn" data-filter="Retrogaming">Retrogaming</button>
-    <button class="filter-btn" data-filter="Tecnologia">Tecnologia</button>
+    <button class="filter-btn active" data-filter="all">
+      <span data-lang="pt">Todos ({{ site.posts.size }})</span>
+      <span data-lang="en">All ({{ site.posts.size }})</span>
+    </button>
+    <button class="filter-btn" data-filter="Engenharia">
+      <span data-lang="pt">Engenharia</span>
+      <span data-lang="en">Engineering</span>
+    </button>
+    <button class="filter-btn" data-filter="Design">
+      <span data-lang="pt">Design</span>
+      <span data-lang="en">Design</span>
+    </button>
+    <button class="filter-btn" data-filter="Segurança">
+      <span data-lang="pt">Segurança</span>
+      <span data-lang="en">Security</span>
+    </button>
+    <button class="filter-btn" data-filter="Produtividade">
+      <span data-lang="pt">Produtividade</span>
+      <span data-lang="en">Productivity</span>
+    </button>
+    <button class="filter-btn" data-filter="Automação">
+      <span data-lang="pt">Automação</span>
+      <span data-lang="en">Automation</span>
+    </button>
+    <button class="filter-btn" data-filter="Retrogaming">
+      <span data-lang="pt">Retrogaming</span>
+      <span data-lang="en">Retrogaming</span>
+    </button>
+    <button class="filter-btn" data-filter="Tecnologia">
+      <span data-lang="pt">Tecnologia</span>
+      <span data-lang="en">Technology</span>
+    </button>
   </div>
 
   <div class="posts-grid" id="postsGrid">
@@ -59,10 +107,14 @@ layout: default
           {% endif %}
         </div>
         <h3 class="card-title">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <a href="{{ post.url | relative_url }}">
+            <span data-lang="pt">{{ post.title }}</span>
+            <span data-lang="en">{% if post.title_en %}{{ post.title_en }}{% else %}{{ post.title }}{% endif %}</span>
+          </a>
         </h3>
         <p class="card-excerpt">
-          {{ post.excerpt | strip_html | truncate: 140 }}
+          <span data-lang="pt">{{ post.excerpt | strip_html | truncate: 140 }}</span>
+          <span data-lang="en">{% if post.excerpt_en %}{{ post.excerpt_en }}{% else %}{{ post.excerpt | strip_html | truncate: 140 }}{% endif %}</span>
         </p>
         <div class="card-footer">
           <div class="tags-list">
@@ -70,7 +122,11 @@ layout: default
               <span class="tag">#{{ tag }}</span>
             {% endfor %}
           </div>
-          <a href="{{ post.url | relative_url }}" class="read-more">Ler <i class="fas fa-arrow-right"></i></a>
+          <a href="{{ post.url | relative_url }}" class="read-more">
+            <span data-lang="pt">Ler</span>
+            <span data-lang="en">Read</span> 
+            <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
       </article>
     {% endfor %}

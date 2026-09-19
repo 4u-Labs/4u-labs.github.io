@@ -5,7 +5,10 @@ date: 2026-09-17 11:00:00 -0300
 categories: [Design]
 tags: [photoshop, photoclone, ia, webgl, designgrafico]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "PhotoClone Pro: Layered Image Editing with WebGL Acceleration and AI in the Browser"
+excerpt_en: "A complete Photoshop-style editor in the browser: WebGL 2.0 layer shaders, AI background removal, photo colorizer, and PSD file support."
 ---
+
 
 A edição profissional de fotos no computador sempre foi sinônimo de instaladores pesados, máquinas com refrigeração dedicada e assinaturas recorrentes na casa das centenas de reais ao ano.
 

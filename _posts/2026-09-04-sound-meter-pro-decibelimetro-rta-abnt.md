@@ -5,7 +5,10 @@ date: 2026-09-04 11:30:00 -0300
 categories: [Engenharia]
 tags: [soundmeter, audio, decibelimetro, abnt, webaudio]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "Sound Meter Pro: Real-Time Digital Decibel Meter with RTA Spectrum Analyzer"
+excerpt_en: "Accurate acoustic measurement using the Web Audio API, A/C weighting curves, and FFT frequency filters."
 ---
+
 
 A medição de níveis de pressão sonora para conformidade com normas técnicas de conforto acústico (ABNT NBR 10151) e segurança do trabalho (NR-15) normalmente exige equipamentos dedicados com calibração em laboratório.
 

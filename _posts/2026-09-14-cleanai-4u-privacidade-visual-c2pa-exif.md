@@ -5,7 +5,10 @@ date: 2026-09-14 16:45:00 -0300
 categories: [Privacidade]
 tags: [privacidade, cleanai, c2pa, metadados, segurancadigital]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "CleanAI 4U: C2PA Metadata Sanitization, EXIF Scrubbing, and Anti-Tracking Defense"
+excerpt_en: "Binary header disassembly, stripping AI invisible watermarks, and restoring total visual privacy."
 ---
+
 
 A popularização de ferramentas de Inteligência Artificial generativa trouxe consigo um novo ecossistema de rastreamento digital invisível: carimbos digitais, marcas d'água em espectros imperceptíveis ao olho humano e manifests **C2PA (Coalition for Content Provenance and Authenticity)** gravados dentro dos bytes de imagens para sinalizar "Feito com IA" e associar o autor a registros remotos.
 

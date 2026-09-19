@@ -5,7 +5,10 @@ date: 2026-09-13 14:00:00 -0300
 categories: [Produtividade]
 tags: [contratos, 4usign, assinaturadigital, pdf, produtividade]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "4USign Pro: On-Screen Digital Contract Signing with Zero Data Retention"
+excerpt_en: "Fluid Bézier signature capture, direct PDF stream injection, and SHA-256 integrity validation without accounts or fees."
 ---
+
 
 Plataformas tradicionais de assinatura eletrônica de contratos impõem modelos comerciais predatórios: cobram por cada documento enviado, forçam ambas as partes a criarem contas complexas e exigem que contratos confidenciais fiquem hospedados em servidores de terceiros.
 

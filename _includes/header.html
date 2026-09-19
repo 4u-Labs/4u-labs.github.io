@@ -8,11 +8,23 @@
       </a>
     </div>
     <nav class="site-nav">
-      <a href="{{ '/' | relative_url }}" class="nav-item {% if page.url == '/' %}active{% endif %}">Início</a>
-      <a href="{{ '/sobre/' | relative_url }}" class="nav-item {% if page.url == '/sobre/' %}active{% endif %}">Sobre</a>
-      <a href="https://4u.ia.br" target="_blank" rel="noopener" class="nav-item nav-btn">
-        <i class="fas fa-external-link-alt"></i> Explorar 80+ Apps
+      <a href="{{ '/' | relative_url }}" class="nav-item {% if page.url == '/' %}active{% endif %}">
+        <span data-lang="pt">Início</span>
+        <span data-lang="en">Home</span>
       </a>
+      <a href="{{ '/sobre/' | relative_url }}" class="nav-item {% if page.url == '/sobre/' %}active{% endif %}">
+        <span data-lang="pt">Sobre</span>
+        <span data-lang="en">About</span>
+      </a>
+      <a href="https://4u.ia.br" target="_blank" rel="noopener" class="nav-item nav-btn">
+        <i class="fas fa-external-link-alt"></i> 
+        <span data-lang="pt">Explorar 80+ Apps</span>
+        <span data-lang="en">Explore 80+ Apps</span>
+      </a>
+      <div class="lang-switch-container">
+        <button class="lang-btn active" id="btn-pt" onclick="setBlogLang('pt')">PT</button>
+        <button class="lang-btn" id="btn-en" onclick="setBlogLang('en')">EN</button>
+      </div>
       <a href="https://github.com/4u-Labs" target="_blank" rel="noopener" class="nav-item icon-btn" title="GitHub">
         <i class="fab fa-github"></i>
       </a>

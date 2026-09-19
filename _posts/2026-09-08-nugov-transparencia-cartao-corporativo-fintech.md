@@ -5,7 +5,10 @@ date: 2026-09-08 17:00:00 -0300
 categories: [Transparência]
 tags: [nugov, transparencia, dadospublicos, fintech, visualizacao]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "NuGov: Interactive Dashboard for Presidential Corporate Card Spending (2003–2026)"
+excerpt_en: "Public transparency meets fintech UI: fast columnar filtering of over two decades of government spending."
 ---
+
 
 A transparência pública é essencial para a democracia, mas os portais oficiais de dados abertos costumam ser lentos, confusos e repletos de planilhas CSV com centenas de milhares de linhas difíceis de interpretar pelo cidadão comum.
 

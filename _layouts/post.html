@@ -5,12 +5,19 @@ layout: default
   <header class="post-header">
     <div class="content-container">
       <div class="post-meta-top">
-        <a href="{{ '/' | relative_url }}" class="back-link"><i class="fas fa-arrow-left"></i> Todos os artigos</a>
+        <a href="{{ '/' | relative_url }}" class="back-link">
+          <i class="fas fa-arrow-left"></i> 
+          <span data-lang="pt">Todos os artigos</span>
+          <span data-lang="en">All articles</span>
+        </a>
         {% if page.categories.first %}
           <span class="category-pill">{{ page.categories.first }}</span>
         {% endif %}
       </div>
-      <h1 class="post-title">{{ page.title }}</h1>
+      <h1 class="post-title">
+        <span data-lang="pt">{{ page.title }}</span>
+        <span data-lang="en">{% if page.title_en %}{{ page.title_en }}{% else %}{{ page.title }}{% endif %}</span>
+      </h1>
       <div class="post-info">
         <div class="author-info">
           <div class="author-avatar"><i class="fas fa-code"></i></div>
@@ -20,8 +27,10 @@ layout: default
           </div>
         </div>
         <div class="post-share">
-          <button class="copy-link-btn" onclick="navigator.clipboard.writeText(window.location.href); alert('Link copiado!');">
-            <i class="fas fa-link"></i> Copiar Link
+          <button class="copy-link-btn" onclick="navigator.clipboard.writeText(window.location.href); alert(document.documentElement.getAttribute('data-lang') === 'en' ? 'Link copied to clipboard!' : 'Link copiado!');">
+            <i class="fas fa-link"></i> 
+            <span data-lang="pt">Copiar Link</span>
+            <span data-lang="en">Copy Link</span>
           </button>
         </div>
       </div>
@@ -32,7 +41,10 @@ layout: default
     {{ content }}
     
     <div class="post-tags-section">
-      <h4>Tópicos relacionados:</h4>
+      <h4>
+        <span data-lang="pt">Tópicos relacionados:</span>
+        <span data-lang="en">Related topics:</span>
+      </h4>
       <div class="tags-list">
         {% for tag in page.tags %}
           <span class="tag">#{{ tag }}</span>
@@ -43,9 +55,18 @@ layout: default
     <div class="post-cta-box">
       <div class="cta-icon"><i class="fas fa-rocket"></i></div>
       <div class="cta-content">
-        <h3>Experimente o Ecossistema 4U.IA.BR</h3>
-        <p>Acesse mais de 80 aplicações web de alta performance sem instalação e 100% gratuitas.</p>
-        <a href="https://4u.ia.br" target="_blank" rel="noopener" class="cta-btn">Explorar Apps Agora</a>
+        <h3>
+          <span data-lang="pt">Experimente o Ecossistema 4U.IA.BR</span>
+          <span data-lang="en">Experience the 4U.IA.BR Ecosystem</span>
+        </h3>
+        <p>
+          <span data-lang="pt">Acesse mais de 80 aplicações web de alta performance sem instalação e 100% gratuitas.</span>
+          <span data-lang="en">Access 80+ high-performance web applications with zero installation and 100% free.</span>
+        </p>
+        <a href="https://4u.ia.br" target="_blank" rel="noopener" class="cta-btn">
+          <span data-lang="pt">Explorar Apps Agora</span>
+          <span data-lang="en">Explore WebApps Now</span>
+        </a>
       </div>
     </div>
   </div>

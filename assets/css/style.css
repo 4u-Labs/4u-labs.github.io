@@ -1,3 +1,46 @@
+
+/* Bilingual PT/EN Visibility Rules */
+html[data-lang="pt"] [data-lang="en"] {
+  display: none !important;
+}
+html[data-lang="en"] [data-lang="pt"] {
+  display: none !important;
+}
+
+/* Language Switcher in Header */
+.lang-switch-container {
+  display: inline-flex;
+  align-items: center;
+  background: #162035;
+  border: 1px solid #233252;
+  border-radius: 20px;
+  padding: 2px;
+  margin-left: 6px;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.lang-btn:hover {
+  color: #ffffff;
+}
+
+.lang-btn.active {
+  background: var(--accent-cyan);
+  color: #000000 !important;
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.4);
+}
 /* 4U.IA.BR Tech Blog Stylesheet */
 :root {
   --bg-color: #0b0f19;

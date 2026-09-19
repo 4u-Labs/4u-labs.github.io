@@ -1,8 +1,10 @@
 ---
 layout: page
-title: "Sobre a 4U.IA.BR & 4u-Labs"
+title: "Sobre // About"
 permalink: /sobre/
 ---
+
+<div data-lang="pt">
 
 ## Reprogramando a Experiência de Software
 
@@ -34,3 +36,40 @@ Acompanhe nossos repositórios e projetos no GitHub:
 
 Para explorar todas as aplicações online:  
 👉 [4u.ia.br](https://4u.ia.br)
+
+</div>
+
+<div data-lang="en">
+
+## Reprogramming the Software Experience
+
+**4U.IA.BR** was founded with a bold mission: to prove that the modern web is powerful enough to replace bloated desktop installers, expensive monthly subscriptions, and closed proprietary walled gardens.
+
+Today, our ecosystem features **over 80 professional-grade web applications** spanning crucial domains:
+
+- **Graphic Design & Vectorization:** [CorelClone Pro](https://4u.ia.br/app/corel/) (featuring in-browser AI PowerTRACE™ bitmap vectorizer), [PhotoClone Pro](https://4u.ia.br/app/photoclone/), and batch media watermarking suites.
+- **Engineering & Architecture:** [CADClone Pro](https://4u.ia.br/app/cadclone/) (full 2D CAD workstation with precision OSNAP and DXF support), [CorteFácil Pro](https://4u.ia.br/app/cortefacil/) (2D cutting stock sheet optimizer with AI OCR), and technical civil engineering suites.
+- **Security & Cryptography:** [SafePass](https://4u.ia.br/app/safepass/) (zero-knowledge password vault with client-side AES-GCM 256 encryption) and [CleanAI 4U](https://4u.ia.br/app/cleanai/) (anti-tracking C2PA and EXIF metadata sanitizer).
+- **Business & Legal:** [4USign Pro](https://4u.ia.br/app/4usign/) (on-screen digital contract signing with zero server data retention).
+- **Retrogaming & Audio:** Native port of [3D Pinball Space Cadet](https://4u.ia.br/app/pinball/) to WebAssembly at 60 FPS, retro Flash arcade, and Minimax AI chess.
+
+---
+
+### Our Engineering Pillars
+
+1. **⚡ Zero Installation:** Launch any app instantly on Windows, Mac, Linux, Android, or iOS with 0ms delay.
+2. **🛡️ Data Sovereignty (Zero-Knowledge):** Your drawings, files, and credentials never upload to remote servers. All encryption and processing happen locally on your device.
+3. **🚀 Open Web Standards:** Engineered with WebAssembly (WASM), WebGL 2.0, WebGPU, Canvas API, offline PWAs, and IndexedDB.
+4. **💎 Universal Accessibility:** High-productivity software should be free and democratized for everyone.
+
+---
+
+### Community & Open Source
+
+Follow our repositories and open initiatives on GitHub:  
+👉 [github.com/4u-Labs](https://github.com/4u-Labs)
+
+Explore all live applications:  
+👉 [4u.ia.br](https://4u.ia.br)
+
+</div>

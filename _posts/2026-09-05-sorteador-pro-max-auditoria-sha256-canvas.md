@@ -5,7 +5,10 @@ date: 2026-09-05 16:00:00 -0300
 categories: [Automação]
 tags: [sorteio, criptografia, sha256, canvas, aleatoriedade]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "Sorteador Pro Max: Auditable Giveaways with Cryptographic CSPRNG and SHA-256"
+excerpt_en: "Random giveaways with real cryptographic entropy, Canvas wheel animations, and immutable verification certificates."
 ---
+
 
 Sorteios em redes sociais e eventos corporativos sofrem de uma desconfiança crônica: como os participantes podem ter certeza de que o resultado não foi manipulado nos bastidores pelo organizador?
 

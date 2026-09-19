@@ -5,7 +5,10 @@ date: 2026-08-29 14:00:00 -0300
 categories: [Produtividade]
 tags: [office, acrobat, pdf, documentos, produtividade]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "4U Office Suite & Acrobat Web: Document Editing, PDF Merging, and Conversion"
+excerpt_en: "Free, private in-browser document manipulation: merge, compress, extract, and convert PDFs without server uploads."
 ---
+
 
 A dependência de pacotes de escritório proprietários para tarefas simples como mesclar dois arquivos PDF, extrair páginas ou editar um texto rápido gera custos corporativos gigantescos e barreiras desnecessárias de compatibilidade.
 

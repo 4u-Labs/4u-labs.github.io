@@ -5,7 +5,10 @@ date: 2026-09-15 09:30:00 -0300
 categories: [Segurança]
 tags: [seguranca, criptografia, safepass, zeroknowledge, pwa]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "SafePass: Military-Grade AES-GCM 256 Encryption and Zero-Knowledge in the Browser"
+excerpt_en: "PBKDF2 with 100,000 iterations, Web Cryptography API, Chrome MV3 extension, and Panic PIN protection."
 ---
+
 
 Vazamentos massivos de senhas em plataformas como LastPass reacenderam um debate urgente na comunidade de cibersegurança: **por que confiar seus dados mais sigilosos a servidores em nuvem de terceiros que podem ser hackeados a qualquer momento?**
 

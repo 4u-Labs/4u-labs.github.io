@@ -5,7 +5,10 @@ date: 2026-09-12 10:00:00 -0300
 categories: [Engenharia]
 tags: [engenhariacivil, powercalc, ecalc, calculos, nbr]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "PowerCalc & ΞCALC: 38 Technical Engineering Calculators and NBR Norms"
+excerpt_en: "Reinforced concrete beams, column slenderness, hydraulics, and matrix linear algebra in the browser."
 ---
+
 
 Engenheiros civis, calculistas estruturais e técnicos de obra precisam frequentemente validar dimensionamentos rápidos no canteiro sem acesso a softwares pesados de modelagem BIM.
 

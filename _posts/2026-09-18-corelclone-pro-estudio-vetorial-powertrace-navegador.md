@@ -5,8 +5,11 @@ date: 2026-09-18 10:00:00 -0300
 categories: [Engenharia]
 tags: [coreldraw, vetorizacao, powertrace, canvas, javascript]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "How We Built CorelClone Pro: In-Browser Bézier Curves and Vectorization"
+excerpt_en: "Discover the engineering behind bringing CorelDRAW workflows to the browser, with real-time Bézier polynomial curves and client-side PowerTRACE."
 ---
 
+<div data-lang="pt">
 Durante décadas, designers gráficos, profissionais de comunicação visual e operadores de gráficas rápidas estiveram presos a um paradigma rígido: para criar um vetor, fechar uma sangria de impressão ou transformar um logo em linhas de corte, era mandatório instalar suítes desktop gigantescas e arcar com assinaturas mensais caras.
 
 Quando decidimos construir o **CorelClone Pro**, nossa meta era ousada: **trazer o fluxo de trabalho clássico do CorelDRAW para dentro de qualquer navegador moderno**, sem perda de precisão e com retenção zero de dados (Zero-Knowledge).
@@ -70,3 +73,72 @@ O projeto foi listado e destacado oficialmente na plataforma global [Alternative
 
 Você pode testar a ferramenta gratuitamente agora mesmo em seu navegador:  
 👉 [https://4u.ia.br/app/corel/](https://4u.ia.br/app/corel/)
+</div>
+
+<div data-lang="en">
+
+For decades, graphic designers, signmakers, and print shop operators were locked into a rigid paradigm: to create a vector, configure bleed margins, or convert a raster logo into cut paths, installing bloated desktop suites and paying expensive monthly subscriptions was mandatory.
+
+When we set out to engineer **CorelClone Pro**, our goal was audacious: **bring the classic CorelDRAW workflow directly inside any modern web browser**, with zero loss of precision and zero server data retention (Zero-Knowledge).
+
+In this article, we share our architectural decisions, mathematical rendering challenges, and behind-the-scenes engineering.
+
+---
+
+## The Challenge of Bézier Curves in the Web DOM
+
+Manipulating Bézier nodes requires absolute geometric accuracy. In suites like CorelDRAW and Illustrator, users control cubic and quadratic anchor points with smooth, symmetric, and cusp handles.
+
+To deliver this experience at a rock-solid 60 FPS in the browser:
+
+1. **Hybrid Rendering Pipeline:** We combined a vector rendering engine in **SVG DOM** with accelerated drawing via **HTML5 Canvas 2D**.
+2. **Real-time Cubic Polynomials:** The classic cubic Bézier parametric equation:
+   $$B(t) = (1-t)^3 P_0 + 3(1-t)^2 t P_1 + 3(1-t) t^2 P_2 + t^3 P_3, \quad t \in [0, 1]$$
+   runs directly inside the mouse/pointer loop, ensuring instant snapping to orthogonal axes and adjacent nodes.
+
+```javascript
+// Real-time Cubic Bézier Control Point Interpolation
+function calculateCubicBezierPoint(p0, p1, p2, p3, t) {
+    const mt = 1 - t;
+    return {
+        x: mt * mt * mt * p0.x + 3 * mt * mt * t * p1.x + 3 * mt * t * t * p2.x + t * t * t * p3.x,
+        y: mt * mt * mt * p0.y + 3 * mt * mt * t * p1.y + 3 * mt * t * t * p2.y + t * t * t * p3.y
+    };
+}
+```
+
+---
+
+## Native Client-Side PowerTRACE™: Zero Server Uploads
+
+The biggest differentiator of CorelClone Pro is **Native PowerTRACE™**. Conventional web vectorization tools upload user images to remote Python servers, process them, and return an SVG. This introduces lag, usage quotas, and severe privacy risks for proprietary client logos.
+
+In CorelClone Pro, the entire tracing pipeline executes **100% on the user's local hardware**:
+
+1. **Color Quantization:** The bitmap is sampled via an `OffscreenCanvas` and grouped into color clusters using the Median Cut algorithm.
+2. **Marching Squares & Contour Tracing:** Edge detection and polygonization of color islands.
+3. **Schneider Curve Fitting:** Fitting pixel chains with minimal smooth cubic Bézier segments within a configurable error tolerance.
+
+The result is instant conversion of PNG and JPG files into clean, editable vector curves in under 500 milliseconds.
+
+---
+
+## Specialized Prepress and Print Shop Tools
+
+We didn't build just a simple drawing toy. CorelClone Pro is engineered for real-world print production:
+
+- **Native Bleed Settings (Sangria):** Standard 0mm, 3mm, and 5mm margins with dynamic crop marks and CMYK registration targets on the canvas.
+- **Contour Tool (Plotter Cut Lines):** Automated sticker cut borders with magenta hairline outlines, ready for Roland, Mimaki, and Silhouette plotters.
+- **Fountain Fill (F11 Gradient):** Linear and radial color interpolation with classic presets (Real Gold, Silver, Royal Blue, Sunset).
+- **PowerClip™:** In-place vector masking of bitmaps inside any closed geometric shape.
+
+---
+
+## Global Recognition
+
+The project was officially listed and featured on the global platform [AlternativeTo](https://alternativeto.net/software/corelclone-pro/about/) as one of the best lightweight, privacy-focused alternatives to CorelDRAW.
+
+Test it free in your browser right now:  
+👉 [https://4u.ia.br/app/corel/](https://4u.ia.br/app/corel/)
+
+</div>

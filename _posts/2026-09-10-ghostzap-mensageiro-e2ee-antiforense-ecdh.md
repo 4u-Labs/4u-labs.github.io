@@ -5,7 +5,10 @@ date: 2026-09-10 16:30:00 -0300
 categories: [Segurança]
 tags: [seguranca, criptografia, e2ee, privacida, ghostzap]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "GhostZap: Ultra-Secure Anti-Forensic Messenger with E2EE (ECDH P-256) and RAM-Only Mode"
+excerpt_en: "Elliptic curve Diffie-Hellman key exchange, volatile RAM storage, and emergency panic PIN."
 ---
+
 
 Em uma era de vigilância em massa e retenção invasiva de metadados, a privacidade em comunicações ponto a ponto não é um privilégio — é um direito fundamental.
 

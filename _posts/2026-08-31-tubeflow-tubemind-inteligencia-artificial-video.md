@@ -5,7 +5,10 @@ date: 2026-08-31 16:30:00 -0300
 categories: [Inteligência Artificial]
 tags: [tubeflow, tubemind, youtube, transcricao, ia]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "TubeFlow & TubeMind AI: High-Def Media Downloads and AI Copilot for Long Videos"
+excerpt_en: "Fast YouTube video/audio download paired with an AI Chrome extension that summarizes hours of video into minutes."
 ---
+
 
 Consumir e arquivar conteúdo audiovisual em um mundo de conexões instáveis exige ferramentas que combinem agilidade no download e inteligência semântica para encontrar insights sem precisar assistir a horas de vídeo.
 

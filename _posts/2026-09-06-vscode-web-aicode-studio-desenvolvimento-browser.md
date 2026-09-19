@@ -5,7 +5,10 @@ date: 2026-09-06 14:20:00 -0300
 categories: [Desenvolvimento]
 tags: [vscode, aicode, ide, programacao, webdev]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "VSCode Web & AICode Studio: In-Browser IDE and AI Coding Copilot"
+excerpt_en: "Full Monaco-based code editor with syntax highlighting, IntelliSense, Prettier, and AI assistant in the browser."
 ---
+
 
 Programar a partir de qualquer computador, tablet ou Chromebook sem precisar configurar ambiente local, instalar extensões pesadas ou compilar bibliotecas é a promessa da computação em nuvem moderna.
 

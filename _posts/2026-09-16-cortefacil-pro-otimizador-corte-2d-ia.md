@@ -5,7 +5,10 @@ date: 2026-09-16 15:00:00 -0300
 categories: [Engenharia]
 tags: [marcenaria, cortefacil, otimizacao2d, engenharia, ia]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "CorteFácil Pro: 2D Bin Packing Algorithms and AI for Woodworking and Glass"
+excerpt_en: "Optimizing 2D sheet cutting stock with kerf compensation, OCR AI sketch reading, and automated A4 workshop work orders."
 ---
+
 
 Na marcenaria moderna, na vidraçaria e na serralheria, o custo da matéria-prima representa mais de 60% do valor final do produto. Uma chapa de MDF de 2750 x 1830 mm ou um painel de vidro temperado cortado de forma ineficiente pode significar centenas de reais jogados no lixo em retalhos inutilizáveis.
 

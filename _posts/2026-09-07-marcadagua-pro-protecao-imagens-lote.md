@@ -5,7 +5,10 @@ date: 2026-09-07 10:30:00 -0300
 categories: [Design]
 tags: [marcadagua, design, protecao, lote, canvas]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "MarcaDágua Pro: Batch Image Watermarking with Web Workers and Concurrent Rendering"
+excerpt_en: "Watermark hundreds of photos simultaneously using multithreaded Web Workers and OffscreenCanvas."
 ---
+
 
 Fotógrafos, e-commerces e criadores de conteúdo que precisam aplicar logotipos e direitos autorais em dezenas de imagens por dia frequentemente recorrem a serviços online que cobram assinaturas ou impõem limites rígidos de upload.
 

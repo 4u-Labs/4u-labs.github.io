@@ -5,7 +5,10 @@ date: 2026-08-30 11:00:00 -0300
 categories: [SaaS]
 tags: [lavexpress, saas, pdv, impressaotermica, gestao]
 author: "Fabiano Braga // 4U.IA.BR"
+title_en: "LavExpress: A Modern Laundry SaaS, POS, and Native ESC/POS Thermal Printing"
+excerpt_en: "Point of sale (POS) and operations management with direct Web Serial and Web USB thermal receipt printing."
 ---
+
 
 Lavanderias comerciais, lavanderias self-service e tinturarias operam em um ritmo acelerado de balcão: peças de roupas recebidas por quilo ou unidade, controle de manchas e avarias, prazos rígidos de entrega e emissão de comprovantes térmicos para o cliente.
 
