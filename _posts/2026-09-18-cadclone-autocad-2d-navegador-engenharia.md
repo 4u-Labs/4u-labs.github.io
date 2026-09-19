@@ -53,16 +53,11 @@ function interseccaoLinhas(p1, p2, p3, p4) {
 A produtividade de um projetista experiente vem da mão esquerda no teclado e da mão direita no mouse. Recriar menus suspensos modernos sem respeitar a memória muscular de comandos clássicos seria um erro fatal.
 
 No CADClone, a linha de comando inferior suporta:
-- `L` ou `LINE` $
-ightarrow$ Criar linha contínua
-- `C` ou `CIRCLE` $
-ightarrow$ Desenhar circunferência por centro e raio
-- `REC` $
-ightarrow$ Retângulo com coordenadas relativas `@largura,altura`
-- `O` ou `OFFSET` $
-ightarrow$ Deslocamento paralelo equidistante
-- `TR` ou `TRIM` $
-ightarrow$ Aparar segmentos excedentes
+- `L` ou `LINE` → Criar linha contínua
+- `C` ou `CIRCLE` → Desenhar circunferência por centro e raio
+- `REC` → Retângulo com coordenadas relativas `@largura,altura`
+- `O` ou `OFFSET` → Deslocamento paralelo equidistante
+- `TR` ou `TRIM` → Aparar segmentos excedentes
 
 ---
 
@@ -128,11 +123,11 @@ function lineIntersection(p1, p2, p3, p4) {
 The speed of an experienced CAD drafter relies on muscle memory: left hand on the keyboard, right hand on the mouse.
 
 CADClone natively supports classic AutoCAD shortcuts:
-- `L` or `LINE` $ightarrow$ Continuous line
-- `C` or `CIRCLE` $ightarrow$ Circle by center and radius
-- `REC` $ightarrow$ Rectangle with relative `@width,height` coordinates
-- `O` or `OFFSET` $ightarrow$ Equidistant parallel copy
-- `TR` or `TRIM` $ightarrow$ Trim intersecting segments
+- `L` or `LINE` → Continuous line
+- `C` or `CIRCLE` → Circle by center and radius
+- `REC` → Rectangle with relative `@width,height` coordinates
+- `O` or `OFFSET` → Equidistant parallel copy
+- `TR` or `TRIM` → Trim intersecting segments
 
 ---
 
