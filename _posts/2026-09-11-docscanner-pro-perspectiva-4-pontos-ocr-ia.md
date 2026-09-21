@@ -1,18 +1,18 @@
 ---
 layout: post
-title: "DocScanner Pro: Digitalização de Documentos com Correção de Perspectiva em 4 Pontos e OCR"
+title: "DocScan Pro: Digitalização de Documentos com Correção de Perspectiva em 4 Pontos e OCR"
 date: 2026-09-11 14:00:00 -0300
 categories: [Produtividade]
 tags: [scanner, ocr, visaocomputacional, pdf, produtividade]
 author: "Fabiano Braga // 4U.IA.BR"
-title_en: "DocScanner Pro: 4-Point Perspective Homography Correction and OCR in the Browser"
+title_en: "DocScan Pro: 4-Point Perspective Homography Correction and OCR in the Browser"
 excerpt_en: "Document scanning via webcam or smartphone with adaptive thresholding, perspective rectification, and multipage PDF export."
 ---
 
 
 Aplicativos de scanner para smartphones geralmente vêm acompanhados de assinaturas agressivas, anúncios invasivos e marcas d'água irritantes nos documentos digitalizados.
 
-O **DocScanner Pro** foi concebido para devolver o controle ao usuário: **uma estação completa de escaneamento de folhas, recibos e contratos diretamente na câmera do navegador**, com retificação geométrica em 4 pontos, filtros de realce de texto e OCR (Reconhecimento Óptico de Caracteres) 100% no cliente.
+O **DocScan Pro** foi concebido para devolver o controle ao usuário: **uma estação completa de escaneamento de folhas, recibos e contratos diretamente na câmera do navegador**, com retificação geométrica em 4 pontos, filtros de realce de texto e OCR (Reconhecimento Óptico de Caracteres) 100% no cliente.
 
 ---
 
