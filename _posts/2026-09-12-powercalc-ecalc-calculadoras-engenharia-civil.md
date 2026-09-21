@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "PowerCalc & ΞCALC: A Suíte de 38 Calculadoras Técnicas para Engenharia Civil e Ciências Exatas"
+title: "PowerCalc & ΞCALC: A Suíte de 39 Calculadoras Técnicas para Engenharia Civil e Ciências Exatas"
 date: 2026-09-12 10:00:00 -0300
 categories: [Engenharia]
 tags: [engenhariacivil, powercalc, ecalc, calculos, nbr]
 author: "Fabiano Braga // 4U.IA.BR"
-title_en: "PowerCalc & ΞCALC: 38 Technical Engineering Calculators and NBR Norms"
+title_en: "PowerCalc & ΞCALC: 39 Technical Engineering Calculators and NBR Norms"
 excerpt_en: "Reinforced concrete beams, column slenderness, hydraulics, and matrix linear algebra in the browser."
 ---
 
