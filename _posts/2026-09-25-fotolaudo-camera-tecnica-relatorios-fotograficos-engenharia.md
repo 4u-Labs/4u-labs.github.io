@@ -9,7 +9,8 @@ title_en: "FotoLaudo: In-Browser Field Inspection Camera & Technical PDF Report 
 excerpt_en: "Turn any smartphone or tablet into a professional surveying camera: real-time GPS telemetry, UTM projection, CAD dimensioning, and client-side PDF dossier generation."
 ---
 
-<div data-lang="pt">
+<div data-lang="pt" markdown="1">
+
 Engenheiros civis, peritos judiciais, arquitetos e equipes de fiscalização de obras compartilham uma rotina exaustiva no trabalho de campo: tirar dezenas de fotos com smartphones ou câmeras digitais, anotar estaqueamentos e coordenadas em cadernos de campo, e depois passar horas em frente ao computador descarregando arquivos, renomeando fotos, montando tabelas e colando imagens em editores de texto para emitir um laudo fotográfico.
 
 Para eliminar esse retrabalho, desenvolvemos o **FotoLaudo**, uma estação de campo fotogramétrica completa que opera diretamente no navegador como PWA, carimbando telemetria técnica indelével na imagem e gerando laudos padronizados em PDF com apenas um clique.
@@ -50,9 +51,11 @@ O maior diferencial do FotoLaudo está na eliminação do processamento em servi
 🔗 **Acesse o FotoLaudo online:**  
 👉 [https://4u.ia.br/app/fotolaudo/](https://4u.ia.br/app/fotolaudo/)  
 ⭐ [Código Aberto no GitHub](https://github.com/4u-Labs/fotolaudo)
+
 </div>
 
-<div data-lang="en">
+<div data-lang="en" markdown="1">
+
 Civil engineers, forensic inspectors, architects, and construction supervisors often face an exhausting manual routine in the field: capturing dozens of inspection photos, logging chainage and GPS coordinates on paper notebooks, and subsequently spending hours manually formatting tables and pasting photos into desktop word processors.
 
 To eliminate this operational friction, we created **FotoLaudo**, an in-browser photogrammetric field workstation running as a PWA that stamps immutable surveying telemetry directly onto photos and compiles standardized PDF inspection dossiers in seconds.
@@ -93,4 +96,5 @@ FotoLaudo's core innovation is eliminating slow server-side rendering pipelines.
 🔗 **Try FotoLaudo online:**  
 👉 [https://4u.ia.br/app/fotolaudo/](https://4u.ia.br/app/fotolaudo/)  
 ⭐ [Open Source on GitHub](https://github.com/4u-Labs/fotolaudo)
+
 </div>

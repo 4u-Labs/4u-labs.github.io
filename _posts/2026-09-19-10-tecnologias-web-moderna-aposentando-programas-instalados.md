@@ -9,7 +9,8 @@ title_en: "10 Modern Web Technologies That Are Replacing Desktop Bloatware"
 excerpt_en: "How WebAssembly, WebGPU, Client-Side AI, and Zero-Knowledge architectures turned the browser into the most powerful distributed OS."
 ---
 
-<div data-lang="pt">
+<div data-lang="pt" markdown="1">
+
 O navegador de internet deixou de ser uma janela para exibir documentos hipertexto e se transformou no sistema operacional distribuído mais potente da história da computação.
 
 Durante anos, a justificativa para manter softwares instalados no disco era a "performance nativa". Hoje, essa barreira caiu. Com a convergência de novos padrões abertos da W3C e navegadores modernos, é possível rodar editores vetoriais, suítes de CAD e modelos de Inteligência Artificial com 0MB instalados e resposta em tempo real.
@@ -55,9 +56,10 @@ A comunicação bidirecional de baixa latência e a transmissão ponto a ponto (
 Todas essas 10 tecnologias não são apenas conceitos teóricos: elas são a fundação viva de cada uma das **mais de 80 aplicações** do ecossistema [4U.IA.BR](https://4u.ia.br).
 
 Acreditamos que o futuro do software é aberto, soberano, rápido e livre de pedágios desnecessários.
+
 </div>
 
-<div data-lang="en">
+<div data-lang="en" markdown="1">
 
 The web browser is no longer just a window for hypertext documents. It has evolved into the most powerful distributed operating system in computer science history.
 

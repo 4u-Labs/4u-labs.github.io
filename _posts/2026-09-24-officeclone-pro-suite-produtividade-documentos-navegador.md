@@ -9,7 +9,8 @@ title_en: "OfficeClone Pro: The In-Browser Productivity Suite with Zero Subscrip
 excerpt_en: "A complete, private office workstation right in your browser: Word, Excel, PowerPoint, Project Gantt charts, and PDF manipulation running 100% client-side."
 ---
 
-<div data-lang="pt">
+<div data-lang="pt" markdown="1">
+
 Durante décadas, pacotes de escritório como Microsoft 365 e Google Workspace estabeleceram o padrão de criação de documentos. No entanto, esse modelo trouxe consigo custos recorrentes elevados de assinatura, dependência constante de conexão de rede e a perda gradual da soberania de dados corporativos e pessoais.
 
 Com o **OfficeClone Pro**, desenvolvemos uma suíte de produtividade completa, moderna e modular que opera diretamente dentro do navegador, com arquitetura **100% Client-Side** e suporte nativo a **PWA (Progressive Web App)** para funcionamento ininterrupto sem internet.
@@ -52,9 +53,11 @@ O OfficeClone Pro é gratuito, aberto e projetado para democratizar o acesso à 
 🔗 **Acesse a suíte completa online:**  
 👉 [https://4u.ia.br/app/office/](https://4u.ia.br/app/office/)  
 ⭐ [Código Aberto no GitHub](https://github.com/4u-Labs/office)
+
 </div>
 
-<div data-lang="en">
+<div data-lang="en" markdown="1">
+
 For decades, office suites like Microsoft 365 and Google Workspace have set the benchmark for document creation. However, this model came at the cost of expensive recurring subscriptions, mandatory internet connectivity, and the gradual loss of privacy and data sovereignty.
 
 With **OfficeClone Pro**, we built a comprehensive, lightweight, and modular productivity suite running entirely inside the web browser, powered by a **100% Client-Side** architecture and full **PWA (Progressive Web App)** offline capabilities.
@@ -97,4 +100,5 @@ OfficeClone Pro is free, open, and built to prove that the modern web browser is
 🔗 **Try OfficeClone Pro online:**  
 👉 [https://4u.ia.br/app/office/](https://4u.ia.br/app/office/)  
 ⭐ [Open Source on GitHub](https://github.com/4u-Labs/office)
+
 </div>

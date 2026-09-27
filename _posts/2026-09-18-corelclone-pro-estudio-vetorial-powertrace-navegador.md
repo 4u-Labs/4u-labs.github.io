@@ -9,7 +9,8 @@ title_en: "How We Built CorelClone Pro: In-Browser Bézier Curves and Vectorizat
 excerpt_en: "Discover the engineering behind bringing CorelDRAW workflows to the browser, with real-time Bézier polynomial curves and client-side PowerTRACE."
 ---
 
-<div data-lang="pt">
+<div data-lang="pt" markdown="1">
+
 Durante décadas, designers gráficos, profissionais de comunicação visual e operadores de gráficas rápidas estiveram presos a um paradigma rígido: para criar um vetor, fechar uma sangria de impressão ou transformar um logo em linhas de corte, era mandatório instalar suítes desktop gigantescas e arcar com assinaturas mensais caras.
 
 Quando decidimos construir o **CorelClone Pro**, nossa meta era ousada: **trazer o fluxo de trabalho clássico do CorelDRAW para dentro de qualquer navegador moderno**, sem perda de precisão e com retenção zero de dados (Zero-Knowledge).
@@ -73,9 +74,10 @@ O projeto foi listado e destacado oficialmente na plataforma global [Alternative
 
 Você pode testar a ferramenta gratuitamente agora mesmo em seu navegador:  
 👉 [https://4u.ia.br/app/corel/](https://4u.ia.br/app/corel/)
+
 </div>
 
-<div data-lang="en">
+<div data-lang="en" markdown="1">
 
 For decades, graphic designers, signmakers, and print shop operators were locked into a rigid paradigm: to create a vector, configure bleed margins, or convert a raster logo into cut paths, installing bloated desktop suites and paying expensive monthly subscriptions was mandatory.
 

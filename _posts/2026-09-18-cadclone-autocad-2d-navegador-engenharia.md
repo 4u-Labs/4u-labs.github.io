@@ -9,7 +9,8 @@ title_en: "CADClone: An In-Browser 2D AutoCAD Workstation with Magnetic OSNAP an
 excerpt_en: "Building a high-precision 2D CAD workstation running 100% in the web browser, compliant with ABNT standards and featuring 170+ engineering blocks."
 ---
 
-<div data-lang="pt">
+<div data-lang="pt" markdown="1">
+
 Engenheiros civis e arquitetos enfrentam há décadas o mesmo dilema: abrir uma planta baixa de emergência ou conferir uma cota em uma obra exige computadores de alta potência com placas gráficas caras e licenças corporativas que ultrapassam dezenas de milhares de reais ao ano.
 
 Com o **CADClone Pro**, nos propusemos a criar uma alternativa real: uma estação de CAD 2D de alta fidelidade rodando diretamente no browser, sem instalação e compatível com as normas técnicas da ABNT.
@@ -76,9 +77,10 @@ Não faz sentido criar uma ferramenta isolada. O CADClone permite exportar pranc
 
 Experimente gratuitamente em:  
 👉 [https://4u.ia.br/app/cadclone/](https://4u.ia.br/app/cadclone/)
+
 </div>
 
-<div data-lang="en">
+<div data-lang="en" markdown="1">
 
 Civil engineers, structural designers, and construction supervisors have faced the same dilemma for decades: opening an emergency blueprint or verifying a site dimension requires high-end workstations with dedicated graphics cards and enterprise subscriptions costing thousands of dollars a year.
 

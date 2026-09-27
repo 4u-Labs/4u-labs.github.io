@@ -9,7 +9,8 @@ title_en: "UniConvert Pro 2.0: Real-Time Currency & Crypto, Engineering Units, a
 excerpt_en: "The next-generation universal converter: 19 technical categories, live exchange rates, voice-activated NLP, offline PWA, and Chrome Extension MV3."
 ---
 
-<div data-lang="pt">
+<div data-lang="pt" markdown="1">
+
 A maioria dos conversores de unidades disponíveis na web padece dos mesmos problemas crônicos: interfaces saturadas de anúncios intrusivos, lentidão para carregar, suporte restrito a unidades básicas (apenas metros e quilos) e cotações de câmbio desatualizadas ou presas a cadastros pagos.
 
 Com o **UniConvert Pro 2.0**, transformamos essa experiência em uma ferramenta de engenharia moderna, ultrarrápida e universal, equipada com cotações financeiras ao vivo, suporte a 19 categorias técnicas, comando por linguagem natural (texto e voz) e funcionamento 100% offline via PWA e extensão para o Google Chrome.
@@ -61,9 +62,11 @@ Chega de perder tempo procurando a categoria correta em menus suspensos infinito
 🔗 **Acesse o UniConvert Pro online:**  
 👉 [https://4u.ia.br/app/conversor/](https://4u.ia.br/app/conversor/)  
 ⭐ [Código Aberto no GitHub](https://github.com/4u-Labs/conversor)
+
 </div>
 
-<div data-lang="en">
+<div data-lang="en" markdown="1">
+
 Most unit conversion tools on the web suffer from severe common flaws: cluttered screens full of aggressive ads, slow load times, support limited to rudimentary units, and stale currency exchange rates locked behind subscriptions.
 
 With **UniConvert Pro 2.0**, we re-engineered the converter into a high-precision, lightning-fast technical workstation featuring live financial markets, 19 engineering categories, natural language processing (text & voice), offline PWA capabilities, and an official Google Chrome Manifest V3 extension.
@@ -115,4 +118,5 @@ Stop wasting time searching through nested category dropdowns. With our built-in
 🔗 **Try UniConvert Pro online:**  
 👉 [https://4u.ia.br/app/conversor/](https://4u.ia.br/app/conversor/)  
 ⭐ [Open Source on GitHub](https://github.com/4u-Labs/conversor)
+
 </div>

@@ -9,7 +9,8 @@ title_en: "DocScan Pro 2.0: Biometric Folders, Febraban Bank Slips & Direct Ther
 excerpt_en: "The major evolution of our open-source scanner PWA: native fingerprint unlock via WebAuthn, 47-digit bank slip decoding, and ESC/POS thermal printing."
 ---
 
-<div data-lang="pt">
+<div data-lang="pt" markdown="1">
+
 O **DocScan Pro** acaba de passar pela sua maior evolução desde o lançamento. O projeto, concebido como uma alternativa leve, de código aberto e focada em privacidade aos aplicativos tradicionais de scanner (como CamScanner e Adobe Scan), agora integra recursos de segurança biométrica, automação bancária e conexão direta com hardware físico de impressão.
 
 Tudo isso funcionando **100% no navegador**, sem anúncios, sem marcas d'água forçadas e com arquitetura *Client-Side First* (seus documentos nunca ficam salvos em servidores de terceiros).
@@ -60,9 +61,11 @@ O DocScan Pro pode ser instalado em 1 clique pelo novo botão **"Instalar App"**
 👉 [https://4u.ia.br/app/scanner/](https://4u.ia.br/app/scanner/)  
 📖 [Manual e Tutorial Completo](https://4u.ia.br/app/scanner/tutorial.html)  
 ⭐ [Código Aberto no GitHub](https://github.com/4u-Labs/scanner)
+
 </div>
 
-<div data-lang="en">
+<div data-lang="en" markdown="1">
+
 **DocScan Pro** has just received its biggest update since launch. Designed as a lightweight, open-source, and privacy-focused alternative to traditional bloated scanner apps (such as CamScanner and Adobe Scan), it now brings native biometric security, banking automation, and direct thermal hardware printing.
 
 All of this operates **100% inside your browser**, with zero ads, no forced watermarks, and a *Client-Side First* architecture where your documents are never uploaded or retained on remote servers.
@@ -107,4 +110,5 @@ DocScan Pro can be installed with one tap via the **"Install App"** header butto
 👉 [https://4u.ia.br/app/scanner/](https://4u.ia.br/app/scanner/)  
 📖 [User Guide & Tutorial](https://4u.ia.br/app/scanner/tutorial.html)  
 ⭐ [Open Source on GitHub](https://github.com/4u-Labs/scanner)
+
 </div>
