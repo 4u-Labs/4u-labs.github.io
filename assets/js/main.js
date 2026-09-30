@@ -517,4 +517,222 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // ==========================================================================
+  // 4. Dark / Light Theme Ergonomics & Persistence
+  // ==========================================================================
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const themeIconSun = document.getElementById('themeIconSun');
+  const themeIconMoon = document.getElementById('themeIconMoon');
+
+  function updateThemeUI(theme) {
+    if (themeIconSun && themeIconMoon) {
+      if (theme === 'light') {
+        themeIconSun.style.display = 'inline-block';
+        themeIconMoon.style.display = 'none';
+      } else {
+        themeIconSun.style.display = 'none';
+        themeIconMoon.style.display = 'inline-block';
+      }
+    }
+  }
+
+  // Get current active theme
+  const initialTheme = document.documentElement.getAttribute('data-theme') || 
+    (localStorage.getItem('4ulabs_theme') || 'dark');
+  document.documentElement.setAttribute('data-theme', initialTheme);
+  updateThemeUI(initialTheme);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const activeTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      const newTheme = activeTheme === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      try {
+        localStorage.setItem('4ulabs_theme', newTheme);
+      } catch (e) {}
+      updateThemeUI(newTheme);
+    });
+  }
+
+  // ==========================================================================
+  // 5. Reading Progress Bar & Floating Back to Top Button
+  // ==========================================================================
+  const readingProgressFill = document.getElementById('readingProgressFill');
+  const backToTopBtn = document.getElementById('backToTopBtn');
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    // Progress Bar
+    if (readingProgressFill && docHeight > 0) {
+      const progress = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
+      readingProgressFill.style.width = progress + '%';
+    }
+
+    // Back to Top Button
+    if (backToTopBtn) {
+      if (scrollTop > 350) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }
+  }, { passive: true });
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ==========================================================================
+  // 6. Article Reading Time Estimation
+  // ==========================================================================
+  const readingTimeValue = document.getElementById('readingTimeValue');
+  const postBody = document.querySelector('.post-body');
+
+  if (readingTimeValue && postBody) {
+    const textContent = postBody.innerText || '';
+    const words = textContent.trim().split(/\s+/).filter(w => w.length > 0).length;
+    const minutes = Math.max(1, Math.ceil(words / 200));
+    readingTimeValue.textContent = `${minutes} min`;
+  }
+
+  // ==========================================================================
+  // 7. Automated Table of Contents (TOC)
+  // ==========================================================================
+  const postToc = document.getElementById('postToc');
+  const tocBody = document.getElementById('tocBody');
+  const tocToggleBtn = document.getElementById('tocToggleBtn');
+  const tocHeader = document.getElementById('tocHeader');
+  const tocChevron = document.getElementById('tocChevron');
+
+  if (postToc && tocBody && postBody) {
+    const headings = Array.from(postBody.querySelectorAll('h2, h3')).filter(h => {
+      return !h.closest('.related-posts-section') && 
+             !h.closest('.post-cta-box') && 
+             !h.closest('.post-tags-section') &&
+             !h.closest('#postToc');
+    });
+
+    if (headings.length >= 2) {
+      const tocList = document.createElement('ul');
+      tocList.className = 'toc-list';
+
+      headings.forEach((heading, idx) => {
+        if (!heading.id) {
+          const slug = heading.textContent
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)/g, '');
+          heading.id = slug || `section-${idx + 1}`;
+        }
+
+        const li = document.createElement('li');
+        li.className = `toc-item toc-level-${heading.tagName.toLowerCase() === 'h3' ? '3' : '2'}`;
+
+        const link = document.createElement('a');
+        link.className = 'toc-link';
+        link.href = `#${heading.id}`;
+        link.textContent = heading.textContent.trim();
+
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = document.getElementById(heading.id);
+          if (target) {
+            const yOffset = -75;
+            const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+            history.pushState(null, '', `#${heading.id}`);
+          }
+        });
+
+        li.appendChild(link);
+        tocList.appendChild(li);
+      });
+
+      tocBody.appendChild(tocList);
+      postToc.style.display = 'block';
+
+      let isCollapsed = false;
+      function toggleToc() {
+        isCollapsed = !isCollapsed;
+        tocBody.style.display = isCollapsed ? 'none' : 'block';
+        if (tocChevron) {
+          tocChevron.style.transform = isCollapsed ? 'rotate(-90deg)' : 'rotate(0deg)';
+        }
+      }
+
+      if (tocToggleBtn) {
+        tocToggleBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleToc();
+        });
+      }
+      if (tocHeader) {
+        tocHeader.addEventListener('click', toggleToc);
+      }
+    }
+  }
+
+  // ==========================================================================
+  // 8. Custom Toast Notification & Copy Link Handler
+  // ==========================================================================
+  const toastPopup = document.getElementById('toastPopup');
+  const toastText = document.getElementById('toastText');
+  let toastTimer = null;
+
+  function showToast(message) {
+    if (!toastPopup) return;
+    if (toastText) toastText.textContent = message;
+    toastPopup.style.display = 'flex';
+
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toastPopup.style.display = 'none';
+    }, 2800);
+  }
+
+  const postCopyLinkBtn = document.getElementById('postCopyLinkBtn');
+  if (postCopyLinkBtn) {
+    postCopyLinkBtn.addEventListener('click', () => {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        const lang = document.documentElement.getAttribute('data-lang') || 'pt';
+        const msg = lang === 'en' ? 'Link copied to clipboard!' : 'Link copiado com sucesso!';
+        showToast(msg);
+      }).catch(() => {
+        showToast('Erro ao copiar link.');
+      });
+    });
+  }
+
+  // ==========================================================================
+  // 9. KaTeX Auto-Render Math Initialization
+  // ==========================================================================
+  function runKaTeX() {
+    if (typeof renderMathInElement === 'function') {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$', right: '$', display: false },
+          { left: '\\(', right: '\\)', display: false },
+          { left: '\\[', right: '\\]', display: true }
+        ],
+        throwOnError: false,
+        ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      });
+    }
+  }
+
+  if (typeof renderMathInElement === 'function') {
+    runKaTeX();
+  } else {
+    window.addEventListener('load', runKaTeX);
+  }
 });
+

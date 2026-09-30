@@ -1,4 +1,9 @@
 <header class="site-header">
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress-bar" id="readingProgressBar">
+    <div class="reading-progress-fill" id="readingProgressFill"></div>
+  </div>
+
   <div class="header-container">
     <div class="brand">
       <a href="{{ '/' | relative_url }}" class="brand-link">
@@ -33,6 +38,13 @@
         <button class="lang-btn active" id="btn-pt" onclick="setBlogLang('pt')">PT</button>
         <button class="lang-btn" id="btn-en" onclick="setBlogLang('en')">EN</button>
       </div>
+      <button class="theme-toggle-btn" id="themeToggleBtn" title="Alternar tema Claro / Escuro" aria-label="Alternar tema">
+        <i class="fas fa-sun" id="themeIconSun" style="display:none;"></i>
+        <i class="fas fa-moon" id="themeIconMoon"></i>
+      </button>
+      <a href="{{ '/feed.xml' | relative_url }}" target="_blank" rel="noopener" class="nav-item icon-btn" title="Feed RSS">
+        <i class="fas fa-rss"></i>
+      </a>
       <a href="https://github.com/4u-Labs" target="_blank" rel="noopener" class="nav-item icon-btn" title="GitHub">
         <i class="fab fa-github"></i>
       </a>

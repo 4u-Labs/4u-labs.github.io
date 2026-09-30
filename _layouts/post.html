@@ -21,29 +21,64 @@ layout: default
       <div class="post-info">
         <div class="author-info">
           <div class="author-avatar"><i class="fas fa-code"></i></div>
-          <div>
+          <div class="meta-details">
             <span class="author-name">{{ page.author | default: site.author.name }}</span>
-            <span class="post-date">
-              <span data-lang="pt">
-                {{ page.date | date: "%d" }} de 
-                {% assign m = page.date | date: "%-m" %}{% case m %}{% when '1' %}Janeiro{% when '2' %}Fevereiro{% when '3' %}Março{% when '4' %}Abril{% when '5' %}Maio{% when '6' %}Junho{% when '7' %}Julho{% when '8' %}Agosto{% when '9' %}Setembro{% when '10' %}Outubro{% when '11' %}Novembro{% when '12' %}Dezembro{% endcase %} de {{ page.date | date: "%Y" }}
+            <div class="post-sub-meta">
+              <span class="post-date">
+                <span data-lang="pt">
+                  {{ page.date | date: "%d" }} de 
+                  {% assign m = page.date | date: "%-m" %}{% case m %}{% when '1' %}Janeiro{% when '2' %}Fevereiro{% when '3' %}Março{% when '4' %}Abril{% when '5' %}Maio{% when '6' %}Junho{% when '7' %}Julho{% when '8' %}Agosto{% when '9' %}Setembro{% when '10' %}Outubro{% when '11' %}Novembro{% when '12' %}Dezembro{% endcase %} de {{ page.date | date: "%Y" }}
+                </span>
+                <span data-lang="en">{{ page.date | date: "%B %d, %Y" }}</span>
               </span>
-              <span data-lang="en">{{ page.date | date: "%B %d, %Y" }}</span>
-            </span>
+              <span class="meta-dot">•</span>
+              <span class="reading-time">
+                <i class="far fa-clock"></i> 
+                <span id="readingTimeValue">3 min</span>
+              </span>
+            </div>
           </div>
         </div>
-        <div class="post-share">
-          <button class="copy-link-btn" onclick="navigator.clipboard.writeText(window.location.href); alert(document.documentElement.getAttribute('data-lang') === 'en' ? 'Link copied to clipboard!' : 'Link copiado!');">
-            <i class="fas fa-link"></i> 
-            <span data-lang="pt">Copiar Link</span>
-            <span data-lang="en">Copy Link</span>
-          </button>
+        <div class="post-share-actions">
+          <span class="share-label">
+            <span data-lang="pt">Compartilhar:</span>
+            <span data-lang="en">Share:</span>
+          </span>
+          <div class="share-buttons-group">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener" class="share-btn share-linkedin" title="Compartilhar no LinkedIn" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://api.whatsapp.com/send?text={{ page.title | url_encode }}%20{{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener" class="share-btn share-whatsapp" title="Compartilhar no WhatsApp" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener" class="share-btn share-x" title="Compartilhar no X / Twitter" aria-label="X">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <button class="share-btn share-copy" id="postCopyLinkBtn" title="Copiar link do artigo" aria-label="Copiar Link">
+              <i class="fas fa-link"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </header>
 
   <div class="content-container post-body">
+    <!-- Automated Table of Contents -->
+    <nav class="post-toc-container" id="postToc" style="display: none;" aria-label="Sumário do Artigo">
+      <div class="toc-header" id="tocHeader">
+        <span class="toc-title">
+          <i class="fas fa-list-ul"></i>
+          <span data-lang="pt">Neste Artigo</span>
+          <span data-lang="en">In This Article</span>
+        </span>
+        <button type="button" class="toc-toggle-btn" id="tocToggleBtn" aria-label="Alternar sumário">
+          <i class="fas fa-chevron-down" id="tocChevron"></i>
+        </button>
+      </div>
+      <div class="toc-body" id="tocBody"></div>
+    </nav>
+
     {{ content }}
     
     <div class="post-tags-section">
@@ -57,6 +92,62 @@ layout: default
         {% endfor %}
       </div>
     </div>
+
+    <!-- Related Posts -->
+    {% assign current_category = page.categories.first | default: 'Engenharia' %}
+    {% assign related_posts = site.posts | where_exp: "p", "p.url != page.url and p.categories contains current_category" | slice: 0, 3 %}
+    {% if related_posts.size > 0 %}
+      <div class="related-posts-section">
+        <h3 class="related-section-title">
+          <i class="fas fa-layer-group text-accent"></i> 
+          <span data-lang="pt">Publicações Relacionadas</span>
+          <span data-lang="en">Related Publications</span>
+        </h3>
+        <div class="related-cards-grid">
+          {% for rel in related_posts %}
+            <a href="{{ rel.url | relative_url }}" class="related-card">
+              <div class="related-card-meta">
+                <span class="category-pill">{{ rel.categories.first }}</span>
+                <span class="related-date">{{ rel.date | date: "%d/%m/%Y" }}</span>
+              </div>
+              <h4 class="related-card-heading">
+                <span data-lang="pt">{{ rel.title }}</span>
+                <span data-lang="en">{% if rel.title_en %}{{ rel.title_en }}{% else %}{{ rel.title }}{% endif %}</span>
+              </h4>
+              <p class="related-card-excerpt">
+                <span data-lang="pt">{{ rel.excerpt | strip_html | truncate: 110 }}</span>
+                <span data-lang="en">{% if rel.excerpt_en %}{{ rel.excerpt_en }}{% else %}{{ rel.excerpt | strip_html | truncate: 110 }}{% endif %}</span>
+              </p>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Next / Previous Post Navigation -->
+    <nav class="post-nav-strip">
+      {% if page.previous %}
+        <a href="{{ page.previous.url | relative_url }}" class="nav-card prev-card">
+          <span class="nav-direction"><i class="fas fa-arrow-left"></i> <span data-lang="pt">Anterior</span><span data-lang="en">Previous</span></span>
+          <span class="nav-title">
+            <span data-lang="pt">{{ page.previous.title | truncate: 50 }}</span>
+            <span data-lang="en">{% if page.previous.title_en %}{{ page.previous.title_en | truncate: 50 }}{% else %}{{ page.previous.title | truncate: 50 }}{% endif %}</span>
+          </span>
+        </a>
+      {% else %}
+        <div class="nav-card-empty"></div>
+      {% endif %}
+
+      {% if page.next %}
+        <a href="{{ page.next.url | relative_url }}" class="nav-card next-card">
+          <span class="nav-direction"><span data-lang="pt">Próximo</span><span data-lang="en">Next</span> <i class="fas fa-arrow-right"></i></span>
+          <span class="nav-title">
+            <span data-lang="pt">{{ page.next.title | truncate: 50 }}</span>
+            <span data-lang="en">{% if page.next.title_en %}{{ page.next.title_en | truncate: 50 }}{% else %}{{ page.next.title | truncate: 50 }}{% endif %}</span>
+          </span>
+        </a>
+      {% endif %}
+    </nav>
 
     <div class="post-cta-box">
       <div class="cta-icon"><i class="fas fa-rocket"></i></div>
@@ -77,3 +168,9 @@ layout: default
     </div>
   </div>
 </article>
+
+<!-- Toast Notification Popup -->
+<div class="toast-popup" id="toastPopup" style="display: none;">
+  <i class="fas fa-check-circle toast-icon"></i>
+  <span class="toast-text" id="toastText">Link copiado com sucesso!</span>
+</div>
