@@ -177,6 +177,30 @@ layout: default
     {% endfor %}
   </div>
 
+  <!-- Progressive Pagination / Load More Controls -->
+  <div class="pagination-container" id="paginationContainer" style="display: none;">
+    <div class="pagination-info">
+      <span class="pagination-count-label">
+        <span data-lang="pt">Exibindo <strong id="paginationCurrentCount">12</strong> de <strong id="paginationTotalCount">{{ site.posts.size }}</strong> artigos</span>
+        <span data-lang="en">Showing <strong id="paginationCurrentCountEn">12</strong> of <strong id="paginationTotalCountEn">{{ site.posts.size }}</strong> articles</span>
+      </span>
+      <div class="pagination-progress-track">
+        <div class="pagination-progress-fill" id="paginationProgressFill" style="width: 20%;"></div>
+      </div>
+    </div>
+    <div class="pagination-actions">
+      <button type="button" class="load-more-btn" id="loadMoreBtn">
+        <i class="fas fa-layer-group"></i>
+        <span data-lang="pt">Carregar Mais Artigos (<span id="loadMoreBatchCount">+12</span>)</span>
+        <span data-lang="en">Load More Articles (<span id="loadMoreBatchCountEn">+12</span>)</span>
+      </button>
+      <button type="button" class="show-all-btn" id="showAllBtn">
+        <span data-lang="pt">Mostrar Todos</span>
+        <span data-lang="en">Show All</span>
+      </button>
+    </div>
+  </div>
+
   <!-- Search No Results State -->
   <div class="search-no-results" id="searchNoResults" style="display: none;">
     <div class="no-results-icon"><i class="fas fa-search-minus"></i></div>

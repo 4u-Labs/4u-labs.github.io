@@ -103,11 +103,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function applyFilters() {
+  const PAGE_SIZE = 12;
+  let visibleLimit = PAGE_SIZE;
+
+  const paginationContainer = document.getElementById('paginationContainer');
+  const paginationCurrentCount = document.getElementById('paginationCurrentCount');
+  const paginationCurrentCountEn = document.getElementById('paginationCurrentCountEn');
+  const paginationTotalCount = document.getElementById('paginationTotalCount');
+  const paginationTotalCountEn = document.getElementById('paginationTotalCountEn');
+  const paginationProgressFill = document.getElementById('paginationProgressFill');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  const showAllBtn = document.getElementById('showAllBtn');
+  const loadMoreBatchCount = document.getElementById('loadMoreBatchCount');
+  const loadMoreBatchCountEn = document.getElementById('loadMoreBatchCountEn');
+
+  function applyFilters(resetPagination = false) {
     if (!postsGrid || postCards.length === 0) return;
 
+    if (resetPagination) {
+      visibleLimit = PAGE_SIZE;
+    }
+
     const normQuery = normalizeText(activeQuery);
-    let visibleCount = 0;
+    const matchingCards = [];
 
     postCards.forEach(card => {
       const category = card.getAttribute('data-category');
@@ -115,8 +133,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const matchesSearch = matchesAllTokens(card._searchIndex, normQuery);
 
       if (matchesCategory && matchesSearch) {
+        matchingCards.push(card);
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    const totalMatching = matchingCards.length;
+    const actuallyShown = Math.min(visibleLimit, totalMatching);
+
+    matchingCards.forEach((card, index) => {
+      if (index < visibleLimit) {
         card.style.display = 'flex';
-        visibleCount++;
       } else {
         card.style.display = 'none';
       }
@@ -124,7 +152,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update post count
     if (postsCountDisplay) {
-      postsCountDisplay.textContent = visibleCount;
+      postsCountDisplay.textContent = totalMatching;
+    }
+
+    // Update Progressive Pagination Controls
+    if (paginationContainer) {
+      if (totalMatching > PAGE_SIZE) {
+        paginationContainer.style.display = 'flex';
+        if (paginationCurrentCount) paginationCurrentCount.textContent = actuallyShown;
+        if (paginationCurrentCountEn) paginationCurrentCountEn.textContent = actuallyShown;
+        if (paginationTotalCount) paginationTotalCount.textContent = totalMatching;
+        if (paginationTotalCountEn) paginationTotalCountEn.textContent = totalMatching;
+
+        const progressPercent = Math.min(100, Math.round((actuallyShown / totalMatching) * 100));
+        if (paginationProgressFill) paginationProgressFill.style.width = progressPercent + '%';
+
+        const remaining = totalMatching - actuallyShown;
+        if (remaining > 0) {
+          const nextBatch = Math.min(PAGE_SIZE, remaining);
+          if (loadMoreBtn) {
+            loadMoreBtn.style.display = 'inline-flex';
+            if (loadMoreBatchCount) loadMoreBatchCount.textContent = '+' + nextBatch;
+            if (loadMoreBatchCountEn) loadMoreBatchCountEn.textContent = '+' + nextBatch;
+          }
+          if (showAllBtn) showAllBtn.style.display = 'inline-flex';
+        } else {
+          if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+          if (showAllBtn) showAllBtn.style.display = 'none';
+        }
+      } else {
+        paginationContainer.style.display = 'none';
+      }
     }
 
     // Toggle clear button inside input
@@ -138,11 +196,11 @@ document.addEventListener('DOMContentLoaded', () => {
         searchInfoBar.style.display = 'flex';
         const lang = document.documentElement.getAttribute('data-lang') || 'pt';
         if (lang === 'pt') {
-          const plural = visibleCount === 1 ? 'artigo encontrado' : 'artigos encontrados';
-          searchInfoText.textContent = `Exibindo ${visibleCount} de ${postCards.length} ${plural} para "${activeQuery}"`;
+          const plural = totalMatching === 1 ? 'artigo encontrado' : 'artigos encontrados';
+          searchInfoText.textContent = `Exibindo ${actuallyShown} de ${totalMatching} ${plural} para "${activeQuery}"`;
         } else {
-          const plural = visibleCount === 1 ? 'article found' : 'articles found';
-          searchInfoText.textContent = `Showing ${visibleCount} of ${postCards.length} ${plural} for "${activeQuery}"`;
+          const plural = totalMatching === 1 ? 'article found' : 'articles found';
+          searchInfoText.textContent = `Showing ${actuallyShown} of ${totalMatching} ${plural} for "${activeQuery}"`;
         }
       } else {
         searchInfoBar.style.display = 'none';
@@ -151,9 +209,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle empty results state
     if (searchNoResults && postsGrid) {
-      if (visibleCount === 0) {
+      if (totalMatching === 0) {
         searchNoResults.style.display = 'block';
         postsGrid.style.display = 'none';
+        if (paginationContainer) paginationContainer.style.display = 'none';
       } else {
         searchNoResults.style.display = 'none';
         postsGrid.style.display = 'grid';
@@ -161,18 +220,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Load More & Show All Handlers
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', () => {
+      visibleLimit += PAGE_SIZE;
+      applyFilters(false);
+    });
+  }
+
+  if (showAllBtn) {
+    showAllBtn.addEventListener('click', () => {
+      visibleLimit = postCards.length;
+      applyFilters(false);
+    });
+  }
+
   // Handle Home Search Input
   if (homeSearchInput) {
     homeSearchInput.addEventListener('input', (e) => {
       activeQuery = e.target.value.trim();
-      applyFilters();
+      applyFilters(true);
     });
 
     homeSearchInput.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         homeSearchInput.value = '';
         activeQuery = '';
-        applyFilters();
+        applyFilters(true);
         homeSearchInput.blur();
       }
     });
@@ -185,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
       homeSearchInput.focus();
     }
     activeQuery = '';
-    applyFilters();
+    applyFilters(true);
   }
 
   function resetAllFilters() {
@@ -201,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    applyFilters();
+    applyFilters(true);
   }
 
   if (homeSearchClearBtn) homeSearchClearBtn.addEventListener('click', clearHomeSearch);
@@ -215,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         activeCategory = btn.getAttribute('data-filter');
-        applyFilters();
+        applyFilters(true);
       });
     });
   }
@@ -228,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (homeSearchInput && query) {
           homeSearchInput.value = query;
           activeQuery = query;
-          applyFilters();
+          applyFilters(true);
           homeSearchInput.focus();
         }
       });
@@ -242,13 +316,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (qParam && homeSearchInput) {
       homeSearchInput.value = qParam;
       activeQuery = qParam;
-      applyFilters();
+      applyFilters(true);
+    } else if (postsGrid) {
+      // Initialize progressive pagination for homepage
+      applyFilters(true);
     }
-  } catch(e) {}
+  } catch(e) {
+    if (postsGrid) applyFilters(true);
+  }
 
   // Update search info bar when language is toggled
   window.addEventListener('langchange', () => {
-    if (activeQuery) applyFilters();
+    if (activeQuery) applyFilters(false);
   });
 
 
@@ -280,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ? parsedUrl.pathname + 'search.json' 
         : parsedUrl.pathname.substring(0, parsedUrl.pathname.lastIndexOf('/') + 1) + 'search.json';
 
-      const res = await fetch(searchJsonUrl);
+      const res = await fetch(searchJsonUrl + '?v=' + Date.now());
       if (!res.ok) throw new Error('Failed to load search.json');
       const data = await res.json();
       searchIndex = data.map(item => ({
