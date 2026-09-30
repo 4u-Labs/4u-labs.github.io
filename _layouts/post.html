@@ -10,9 +10,18 @@ layout: default
           <span data-lang="pt">Todos os artigos</span>
           <span data-lang="en">All articles</span>
         </a>
-        {% if page.categories.first %}
-          <span class="category-pill">{{ page.categories.first }}</span>
-        {% endif %}
+        <div style="display: flex; align-items: center; gap: 8px;">
+          {% if page.tags contains 'webassembly' %}
+            <span class="tech-badge wasm">⚡ WebAssembly</span>
+          {% elsif page.tags contains 'zeroknowledge' %}
+            <span class="tech-badge zk">🔒 Zero-Knowledge</span>
+          {% elsif page.categories contains 'Engenharia' %}
+            <span class="tech-badge norm"><i class="fas fa-drafting-compass"></i> ABNT NBR</span>
+          {% endif %}
+          {% if page.categories.first %}
+            <span class="category-pill">{{ page.categories.first }}</span>
+          {% endif %}
+        </div>
       </div>
       <h1 class="post-title">
         <span data-lang="pt">{{ page.title }}</span>

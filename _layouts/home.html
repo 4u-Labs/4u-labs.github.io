@@ -138,9 +138,18 @@ layout: default
             </span>
             <span data-lang="en">{{ post.date | date: "%b %d, %Y" }}</span>
           </time>
-          {% if post.categories.first %}
-            <span class="category-pill">{{ post.categories.first }}</span>
-          {% endif %}
+          <div style="display: flex; align-items: center; gap: 6px;">
+            {% if post.tags contains 'webassembly' %}
+              <span class="tech-badge wasm">⚡ WASM</span>
+            {% elsif post.tags contains 'zeroknowledge' %}
+              <span class="tech-badge zk">🔒 ZK</span>
+            {% elsif post.categories contains 'Engenharia' %}
+              <span class="tech-badge norm">ABNT</span>
+            {% endif %}
+            {% if post.categories.first %}
+              <span class="category-pill">{{ post.categories.first }}</span>
+            {% endif %}
+          </div>
         </div>
         <h3 class="card-title">
           <a href="{{ post.url | relative_url }}">

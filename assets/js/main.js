@@ -734,5 +734,51 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     window.addEventListener('load', runKaTeX);
   }
+
+  // ==========================================================================
+  // 10. Direct Heading Anchors (#) with Copy & Smooth Scroll
+  // ==========================================================================
+  if (postBody) {
+    postBody.querySelectorAll('h2, h3').forEach((heading) => {
+      if (heading.closest('#postToc') || 
+          heading.closest('.related-posts-section') || 
+          heading.closest('.post-cta-box') || 
+          heading.closest('.post-tags-section')) return;
+
+      if (!heading.id) {
+        const slug = heading.textContent
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '');
+        heading.id = slug;
+      }
+
+      const anchor = document.createElement('a');
+      anchor.className = 'heading-anchor';
+      anchor.href = `#${heading.id}`;
+      anchor.innerHTML = '<i class="fas fa-hashtag"></i>';
+      anchor.title = 'Copiar link desta seção';
+      anchor.setAttribute('aria-label', 'Copiar link da seção');
+
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = new URL(window.location.href);
+        url.hash = heading.id;
+        navigator.clipboard.writeText(url.toString()).then(() => {
+          const lang = document.documentElement.getAttribute('data-lang') || 'pt';
+          showToast(lang === 'en' ? 'Section link copied!' : 'Link da seção copiado!');
+          history.pushState(null, '', `#${heading.id}`);
+          const yOffset = -75;
+          const y = heading.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        });
+      });
+
+      heading.appendChild(anchor);
+    });
+  }
 });
+
 
