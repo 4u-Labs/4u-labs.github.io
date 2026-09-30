@@ -8,6 +8,14 @@
       </a>
     </div>
     <nav class="site-nav">
+      <button class="nav-search-btn" id="globalSearchTrigger" title="Buscar artigos (Ctrl + K)" aria-label="Buscar">
+        <i class="fas fa-search"></i>
+        <span class="nav-search-text">
+          <span data-lang="pt">Buscar</span>
+          <span data-lang="en">Search</span>
+        </span>
+        <kbd class="nav-search-kbd">Ctrl K</kbd>
+      </button>
       <a href="{{ '/' | relative_url }}" class="nav-item {% if page.url == '/' %}active{% endif %}">
         <span data-lang="pt">Início</span>
         <span data-lang="en">Home</span>
@@ -29,5 +37,64 @@
         <i class="fab fa-github"></i>
       </a>
     </nav>
+  </div>
+
+  <!-- Global Search Modal -->
+  <div class="search-modal-backdrop" id="globalSearchModal" style="display: none;" role="dialog" aria-modal="true" aria-label="Busca de artigos">
+    <div class="search-modal-card">
+      <div class="search-modal-input-wrap">
+        <i class="fas fa-search search-modal-icon"></i>
+        <input 
+          type="search" 
+          id="modalSearchInput" 
+          class="search-modal-input" 
+          placeholder="Buscar artigos, normas ABNT, tags..."
+          data-placeholder-pt="Buscar artigos, normas ABNT, tags..."
+          data-placeholder-en="Search articles, standards, tags..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button type="button" class="search-modal-close-btn" id="modalSearchCloseBtn" title="Fechar (Esc)" aria-label="Fechar">
+          <kbd>ESC</kbd>
+        </button>
+      </div>
+      <div class="search-modal-body">
+        <div class="search-modal-results" id="modalSearchResults">
+          <!-- Results injected by JavaScript -->
+        </div>
+        <div class="search-modal-empty" id="modalSearchEmpty" style="display: none;">
+          <i class="fas fa-search-minus empty-icon"></i>
+          <p>
+            <span data-lang="pt">Nenhum resultado encontrado para essa busca.</span>
+            <span data-lang="en">No results found for this search.</span>
+          </p>
+        </div>
+        <div class="search-modal-initial" id="modalSearchInitial">
+          <span class="modal-section-title">
+            <span data-lang="pt">Sugestões rápidas</span>
+            <span data-lang="en">Quick suggestions</span>
+          </span>
+          <div class="modal-quick-tags">
+            <button type="button" class="modal-tag-chip" data-search="concreto">Concreto</button>
+            <button type="button" class="modal-tag-chip" data-search="nbr 6118">NBR 6118</button>
+            <button type="button" class="modal-tag-chip" data-search="vigas">Vigas</button>
+            <button type="button" class="modal-tag-chip" data-search="pilares">Pilares</button>
+            <button type="button" class="modal-tag-chip" data-search="eletrica">Elétrica</button>
+            <button type="button" class="modal-tag-chip" data-search="hidraulica">Hidráulica</button>
+            <button type="button" class="modal-tag-chip" data-search="cub">CUB</button>
+            <button type="button" class="modal-tag-chip" data-search="cadclone">CADClone</button>
+            <button type="button" class="modal-tag-chip" data-search="seguranca">Segurança</button>
+          </div>
+        </div>
+      </div>
+      <div class="search-modal-footer">
+        <div class="modal-keys-hints">
+          <span><kbd>↑</kbd> <kbd>↓</kbd> <span data-lang="pt">navegar</span><span data-lang="en">navigate</span></span>
+          <span><kbd>↵</kbd> <span data-lang="pt">abrir</span><span data-lang="en">open</span></span>
+          <span><kbd>ESC</kbd> <span data-lang="pt">fechar</span><span data-lang="en">close</span></span>
+        </div>
+        <span class="modal-footer-brand">4U.IA.BR Live Search</span>
+      </div>
+    </div>
   </div>
 </header>

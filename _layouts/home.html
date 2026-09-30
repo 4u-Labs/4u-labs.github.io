@@ -56,10 +56,39 @@ layout: default
       </p>
     </div>
     <span class="article-count">
-      {{ site.posts.size }} 
+      <span id="postsCountDisplay">{{ site.posts.size }}</span> 
       <span data-lang="pt">artigos</span>
       <span data-lang="en">articles</span>
     </span>
+  </div>
+
+  <!-- Search Bar on Homepage -->
+  <div class="search-bar-container">
+    <div class="search-bar-inner">
+      <i class="fas fa-search search-icon"></i>
+      <input 
+        type="search" 
+        id="homeSearchInput" 
+        class="search-input-field" 
+        placeholder="Buscar por título, norma ABNT (ex: 6118, 5410, NR-18), tag ou assunto..." 
+        data-placeholder-pt="Buscar por título, norma ABNT (ex: 6118, 5410, NR-18), tag ou assunto..."
+        data-placeholder-en="Search by title, standard (e.g. 6118, 5410, NR-18), tag or keyword..."
+        autocomplete="off"
+        spellcheck="false"
+      >
+      <button type="button" id="homeSearchClearBtn" class="search-clear-btn" title="Limpar busca" aria-label="Limpar busca" style="display: none;">
+        <i class="fas fa-times"></i>
+      </button>
+      <span class="search-shortcut-badge" title="Pressione / para buscar"><kbd>/</kbd></span>
+    </div>
+    <div class="search-info-bar" id="searchInfoBar" style="display: none;">
+      <span class="search-info-text" id="searchInfoText"></span>
+      <button type="button" class="search-info-reset" id="searchInfoReset">
+        <i class="fas fa-undo-alt"></i> 
+        <span data-lang="pt">Limpar busca</span>
+        <span data-lang="en">Clear search</span>
+      </button>
+    </div>
   </div>
 
   <div class="category-filters">
@@ -99,7 +128,9 @@ layout: default
 
   <div class="posts-grid" id="postsGrid">
     {% for post in site.posts %}
-      <article class="post-card" data-category="{{ post.categories.first | default: 'Geral' }}">
+      <article class="post-card" 
+        data-category="{{ post.categories.first | default: 'Geral' }}"
+        data-search="{{ post.title | escape }} {{ post.title_en | default: post.title | escape }} {{ post.tags | join: ' ' | escape }} {{ post.categories | join: ' ' | escape }} {{ post.excerpt | strip_html | strip_newlines | truncate: 250 | escape }} {{ post.excerpt_en | default: '' | strip_html | strip_newlines | truncate: 250 | escape }}">
         <div class="card-meta">
           <time datetime="{{ post.date | date_to_xmlschema }}">
             <span data-lang="pt">
@@ -135,5 +166,41 @@ layout: default
         </div>
       </article>
     {% endfor %}
+  </div>
+
+  <!-- Search No Results State -->
+  <div class="search-no-results" id="searchNoResults" style="display: none;">
+    <div class="no-results-icon"><i class="fas fa-search-minus"></i></div>
+    <h3 class="no-results-title">
+      <span data-lang="pt">Nenhum artigo encontrado</span>
+      <span data-lang="en">No articles found</span>
+    </h3>
+    <p class="no-results-desc">
+      <span data-lang="pt">Não encontramos publicações correspondentes ao termo digitado. Experimente palavras-chave mais gerais ou clique nas sugestões abaixo:</span>
+      <span data-lang="en">We couldn't find any publications matching your search. Try more general keywords or click the suggestions below:</span>
+    </p>
+    <div class="no-results-suggestions">
+      <span class="suggestions-label">
+        <span data-lang="pt">Sugestões de busca:</span>
+        <span data-lang="en">Popular searches:</span>
+      </span>
+      <div class="suggestion-chips">
+        <button type="button" class="search-chip" data-search="concreto">Concreto</button>
+        <button type="button" class="search-chip" data-search="vigas">Vigas</button>
+        <button type="button" class="search-chip" data-search="pilares">Pilares</button>
+        <button type="button" class="search-chip" data-search="nbr 6118">NBR 6118</button>
+        <button type="button" class="search-chip" data-search="fundacoes">Fundações</button>
+        <button type="button" class="search-chip" data-search="eletrica">Elétrica</button>
+        <button type="button" class="search-chip" data-search="hidraulica">Hidráulica</button>
+        <button type="button" class="search-chip" data-search="cub">CUB</button>
+        <button type="button" class="search-chip" data-search="cadclone">CADClone</button>
+        <button type="button" class="search-chip" data-search="seguranca">Segurança</button>
+      </div>
+    </div>
+    <button type="button" class="no-results-clear-btn" id="noResultsClearBtn">
+      <i class="fas fa-redo"></i> 
+      <span data-lang="pt">Limpar busca e ver todos</span>
+      <span data-lang="en">Clear search and view all</span>
+    </button>
   </div>
 </div>
