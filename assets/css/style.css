@@ -93,9 +93,13 @@ a:hover {
 }
 
 .content-container {
-  max-width: 1040px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+.post-article .content-container {
+  max-width: 860px;
 }
 
 /* Header */
@@ -309,22 +313,77 @@ a:hover {
   gap: 24px;
   margin-bottom: 64px;
 }
+@media (min-width: 1024px) {
+  .posts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 680px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
 
 .post-card {
+  position: relative;
+  overflow: hidden;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 24px;
   display: flex;
   flex-direction: column;
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Gradient Top Accent Line on Every Card */
+.post-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+  opacity: 0.65;
+  transition: all 0.3s ease;
 }
 
 .post-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(6, 182, 212, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.15);
+  transform: translateY(-5px);
+  border-color: rgba(6, 182, 212, 0.45);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.4), 0 0 20px rgba(6, 182, 212, 0.18);
   background: var(--bg-card-hover);
+}
+
+.post-card:hover::before {
+  opacity: 1;
+  height: 4px;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
+}
+
+/* Category-Specific Gradient Top Accents */
+.post-card[data-category="Engenharia"]::before {
+  background: linear-gradient(90deg, #f59e0b, #ef4444);
+}
+.post-card[data-category="Design"]::before {
+  background: linear-gradient(90deg, #ec4899, #8b5cf6);
+}
+.post-card[data-category="Segurança"]::before,
+.post-card[data-category="Privacidade"]::before {
+  background: linear-gradient(90deg, #10b981, #06b6d4);
+}
+.post-card[data-category="Produtividade"]::before {
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+}
+.post-card[data-category="Retrogaming"]::before {
+  background: linear-gradient(90deg, #ef4444, #f59e0b);
+}
+.post-card[data-category="Tecnologia"]::before,
+.post-card[data-category="Automação"]::before {
+  background: linear-gradient(90deg, #8b5cf6, #3b82f6);
 }
 
 .card-meta {
@@ -332,68 +391,181 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 14px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-dim);
+  font-family: var(--font-mono);
 }
 
 .category-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 14px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  letter-spacing: 0.3px;
   background: rgba(6, 182, 212, 0.12);
   color: var(--accent-cyan);
-  padding: 3px 9px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+.category-pill i {
+  font-size: 0.7rem;
+}
+
+/* Distinct Category Colors */
+.category-pill[data-category="Engenharia"] {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.35);
+}
+.category-pill[data-category="Arquitetura"] {
+  background: rgba(6, 182, 212, 0.12);
+  color: #38bdf8;
+  border-color: rgba(6, 182, 212, 0.35);
+}
+.category-pill[data-category="Design"] {
+  background: rgba(236, 72, 153, 0.12);
+  color: #f472b6;
+  border-color: rgba(236, 72, 153, 0.35);
+}
+.category-pill[data-category="Segurança"] {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.35);
+}
+.category-pill[data-category="Privacidade"] {
+  background: rgba(20, 184, 166, 0.12);
+  color: #2dd4bf;
+  border-color: rgba(20, 184, 166, 0.35);
+}
+.category-pill[data-category="Produtividade"] {
+  background: rgba(59, 130, 246, 0.12);
+  color: #60a5fa;
+  border-color: rgba(59, 130, 246, 0.35);
+}
+.category-pill[data-category="Automação"] {
+  background: rgba(249, 115, 22, 0.12);
+  color: #fb923c;
+  border-color: rgba(249, 115, 22, 0.35);
+}
+.category-pill[data-category="Retrogaming"] {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.35);
+}
+.category-pill[data-category="Tecnologia"] {
+  background: rgba(139, 92, 246, 0.12);
+  color: #a78bfa;
+  border-color: rgba(139, 92, 246, 0.35);
 }
 
 .card-title {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  line-height: 1.35;
-  margin-bottom: 12px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.8em;
 }
 
 .card-title a {
   color: var(--text-main);
+  transition: color 0.2s ease;
 }
 
-.card-title a:hover {
+.post-card:hover .card-title a {
   color: var(--accent-cyan);
 }
 
 .card-excerpt {
   color: var(--text-muted);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   line-height: 1.55;
-  margin-bottom: 20px;
-  flex-grow: 1;
+  margin-bottom: 18px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 4.65em;
+  flex-grow: 0;
 }
 
 .card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding-top: 14px;
+  margin-top: auto;
+  gap: 8px;
 }
 
 .tags-list {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
-.tag {
+.tag-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
   color: var(--text-dim);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.2;
+}
+
+.tag-chip:hover {
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  transform: translateY(-1px);
 }
 
 .read-more {
-  font-size: 0.85rem;
-  font-weight: 600;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.read-more i {
+  font-size: 0.72rem;
+  transition: transform 0.25s ease;
+}
+
+.post-card:hover .read-more {
+  background: var(--accent-cyan);
+  color: #000000;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.35);
+}
+
+.post-card:hover .read-more i {
+  transform: translateX(4px);
 }
 
 /* Post Article Single */
@@ -1476,12 +1648,41 @@ html[data-theme="light"] .post-body code:not(pre code) {
 html[data-theme="light"] .post-card {
   background: #ffffff;
   border-color: #e2e8f0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 html[data-theme="light"] .post-card:hover {
   border-color: var(--accent-cyan);
-  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.12);
+  box-shadow: 0 16px 36px -10px rgba(2, 132, 199, 0.16);
+  background: #ffffff;
+}
+
+html[data-theme="light"] .card-footer {
+  border-top-color: #f1f5f9;
+}
+
+html[data-theme="light"] .tag-chip {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #64748b;
+}
+
+html[data-theme="light"] .tag-chip:hover {
+  background: #e0f2fe;
+  color: #0284c7;
+  border-color: #0284c7;
+}
+
+html[data-theme="light"] .read-more {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.25);
+  color: var(--accent-cyan);
+}
+
+html[data-theme="light"] .post-card:hover .read-more {
+  background: var(--accent-cyan);
+  color: #ffffff;
+  border-color: var(--accent-cyan);
 }
 
 html[data-theme="light"] .nav-search-btn {

@@ -146,9 +146,22 @@ layout: default
             {% elsif post.categories contains 'Engenharia' %}
               <span class="tech-badge norm">ABNT</span>
             {% endif %}
-            {% if post.categories.first %}
-              <span class="category-pill">{{ post.categories.first }}</span>
-            {% endif %}
+            {% assign cat = post.categories.first | default: 'Geral' %}
+            <span class="category-pill" data-category="{{ cat }}">
+              {% case cat %}
+                {% when 'Engenharia' %}<i class="fas fa-hard-hat"></i>
+                {% when 'Arquitetura' %}<i class="fas fa-drafting-compass"></i>
+                {% when 'Design' %}<i class="fas fa-paint-brush"></i>
+                {% when 'Segurança' %}<i class="fas fa-shield-alt"></i>
+                {% when 'Privacidade' %}<i class="fas fa-user-secret"></i>
+                {% when 'Produtividade' %}<i class="fas fa-briefcase"></i>
+                {% when 'Automação' %}<i class="fas fa-robot"></i>
+                {% when 'Retrogaming' %}<i class="fas fa-gamepad"></i>
+                {% when 'Tecnologia' %}<i class="fas fa-microchip"></i>
+                {% else %}<i class="fas fa-tag"></i>
+              {% endcase %}
+              <span>{{ cat }}</span>
+            </span>
           </div>
         </div>
         <h3 class="card-title">
@@ -164,12 +177,12 @@ layout: default
         <div class="card-footer">
           <div class="tags-list">
             {% for tag in post.tags limit:3 %}
-              <span class="tag">#{{ tag }}</span>
+              <button type="button" class="tag-chip" data-search="{{ tag }}" title="Filtrar por #{{ tag }}">#{{ tag }}</button>
             {% endfor %}
           </div>
           <a href="{{ post.url | relative_url }}" class="read-more">
-            <span data-lang="pt">Ler</span>
-            <span data-lang="en">Read</span> 
+            <span data-lang="pt">Ler Artigo</span>
+            <span data-lang="en">Read Article</span> 
             <i class="fas fa-arrow-right"></i>
           </a>
         </div>

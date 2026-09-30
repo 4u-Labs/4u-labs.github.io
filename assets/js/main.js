@@ -309,6 +309,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Card tag chips click handler
+  document.querySelectorAll('.tag-chip').forEach(chip => {
+    chip.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const tag = chip.getAttribute('data-search');
+      if (homeSearchInput && tag) {
+        homeSearchInput.value = tag;
+        activeQuery = tag;
+        applyFilters(true);
+        homeSearchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        homeSearchInput.focus();
+      }
+    });
+  });
+
   // Check URL query param (e.g. ?q=concreto)
   try {
     const urlParams = new URLSearchParams(window.location.search);
