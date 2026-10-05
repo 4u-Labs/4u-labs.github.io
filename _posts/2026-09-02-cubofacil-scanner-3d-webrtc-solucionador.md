@@ -31,4 +31,6 @@ O CuboFácil 4U implementa o **Algoritmo de Kociemba (Two-Phase Algorithm)**:
 Através da API `getUserMedia` (WebRTC), o aplicativo captura os 9 adesivos de cada face sob diferentes condições de luz. O classificador converte o espaço de cor RGB para **HSV / Lab**, medindo distâncias euclidianas para diferenciar tons difíceis como laranja e vermelho ou branco e amarelo.
 
 Resolva seu cubo mágico agora:  
-👉 [https://4u.ia.br/app/cubo/](https://4u.ia.br/app/cubo/)
+👉 **Produção Oficial:** [https://4u.ia.br/app/cubo/](https://4u.ia.br/app/cubo/)  
+🌐 **GitHub Pages:** [https://4u-labs.github.io/cubo/](https://4u-labs.github.io/cubo/)  
+📦 **Repositório:** [https://github.com/4u-Labs/cubo](https://github.com/4u-Labs/cubo)
