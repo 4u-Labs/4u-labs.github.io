@@ -729,6 +729,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const li = document.createElement('li');
         li.className = `toc-item toc-level-${heading.tagName.toLowerCase() === 'h3' ? '3' : '2'}`;
+        const languageSection = heading.closest('[data-lang]');
+        if (languageSection && postBody.contains(languageSection)) {
+          li.setAttribute('data-lang', languageSection.getAttribute('data-lang'));
+        }
 
         const link = document.createElement('a');
         link.className = 'toc-link';
