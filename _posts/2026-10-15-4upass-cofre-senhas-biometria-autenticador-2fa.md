@@ -55,17 +55,18 @@ Precisa enviar uma senha temporária, chave de API ou nota técnica para um clie
 
 Além disso, cada conta possui uma **cota pessoal de até 5 MB** para guardar anexos criptografados (como certificados digitais, chaves SSH ou documentos de recuperação) diretamente dentro dos itens do cofre.
 
-### 🧩 PWA e Extensão Pré-Configurada para Chromium
+### 🧩 PWA e Extensão Oficial na Chrome Web Store
 
 O 4uPass foi desenhado para acompanhar sua rotina tanto no celular quanto no desktop:
 
 - **Instalação PWA em 1 clique:** utilize o botão **Instalar** na barra inferior do aplicativo para adicionar o 4uPass à tela inicial do Android, iOS ou área de trabalho do computador.
-- **Extensão para Navegadores Chromium:** pacote oficial já pré-configurado para o servidor da 4u-Labs, compatível com **Google Chrome, Brave, Microsoft Edge, Opera e Vivaldi**, trazendo preenchimento automático e gerador de senhas na barra do navegador.
+- **Extensão Oficial na Chrome Web Store:** adicione diretamente com 1 clique pela [Chrome Web Store](https://chromewebstore.google.com/detail/4upass/mfapofjbdafmddkjipeplanohnchfnnc?utm_source=item-share-cp) — já pré-configurada para o servidor da 4u-Labs e compatível com **Google Chrome, Brave, Microsoft Edge, Opera e Vivaldi**, trazendo preenchimento automático e gerador de senhas na barra do seu navegador.
 
 ### 🌐 Experimente o 4uPass
 
 - [**Abrir Cofre Web 4uPass**](https://4u.ia.br/app/pass/)
-- [**Página Comparativa & Download da Extensão**](https://4u.ia.br/app/pass/comparar.html)
+- [**Extensão Oficial na Chrome Web Store**](https://chromewebstore.google.com/detail/4upass/mfapofjbdafmddkjipeplanohnchfnnc?utm_source=item-share-cp)
+- [**Página Comparativa & Download Manual**](https://4u.ia.br/app/pass/comparar.html)
 - [**Ver na Loja 4u-Labs**](https://4u.ia.br/loja/app.php?id=4upass)
 - [**Ecossistema 4u-Labs no GitHub**](https://github.com/4u-Labs)
 - [**Apoiar o projeto**](https://www.paypal.com/ncp/payment/L7YRCS984T33N)
@@ -116,17 +117,18 @@ Need to share a temporary password, API key or configuration snippet with a clie
 
 Each user account also includes a **5 MB personal quota** for encrypted file attachments (such as digital certificates, SSH keys or recovery codes) stored directly inside vault items.
 
-### 🧩 1-Click PWA and Preconfigured Chromium Extension
+### 🧩 1-Click PWA and Official Chrome Web Store Extension
 
 4uPass is built to work seamlessly across mobile and desktop environments:
 
 - **1-Click PWA Installation:** use the **Install** button in the bottom bar to install 4uPass on Android, iOS or desktop.
-- **Chromium Browser Extension:** preconfigured for the 4u-Labs server and compatible with **Google Chrome, Brave, Microsoft Edge, Opera and Vivaldi**, offering autofill and a built-in password generator right in your browser toolbar.
+- **Official Chrome Web Store Extension:** install directly with 1 click from the [Chrome Web Store](https://chromewebstore.google.com/detail/4upass/mfapofjbdafmddkjipeplanohnchfnnc?utm_source=item-share-cp) — preconfigured for the 4u-Labs server and compatible with **Google Chrome, Brave, Microsoft Edge, Opera and Vivaldi**, offering autofill and a built-in password generator right in your browser toolbar.
 
 ### 🌐 Try 4uPass
 
 - [**Open 4uPass Web Vault**](https://4u.ia.br/app/pass/)
-- [**Comparison Page & Browser Extension**](https://4u.ia.br/app/pass/comparar.html)
+- [**Official Chrome Web Store Extension**](https://chromewebstore.google.com/detail/4upass/mfapofjbdafmddkjipeplanohnchfnnc?utm_source=item-share-cp)
+- [**Comparison Page & Manual Download**](https://4u.ia.br/app/pass/compare.html)
 - [**View on 4u-Labs Store**](https://4u.ia.br/loja/app.php?id=4upass)
 - [**4u-Labs Ecosystem on GitHub**](https://github.com/4u-Labs)
 - [**Support the project**](https://www.paypal.com/ncp/payment/L7YRCS984T33N)
