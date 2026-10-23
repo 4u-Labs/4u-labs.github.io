@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="{% if page.lang == 'en' %}en{% else %}pt-BR{% endif %}"{% if page.lang %} data-page-lang="{{ page.lang }}" data-lang="{{ page.lang }}"{% endif %}{% if page.translation_pt %} data-url-pt="{{ page.translation_pt | relative_url }}" data-url-en="{{ page.translation_en | relative_url }}"{% endif %}>
   {% include head.html %}
   <body>
     <div class="site-wrapper">

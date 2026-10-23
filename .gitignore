@@ -1,0 +1,10 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.bundle/
+vendor/
+.env
+*.db
+*.sqlite*
+*.log
+__pycache__/

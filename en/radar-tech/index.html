@@ -1,0 +1,22 @@
+---
+layout: default
+title: "Radar Tech — tecnologia em alta, explicada com contexto"
+title_en: "Radar Tech — trending technology, explained in context"
+excerpt: "Notícias e análises sobre IA, Linux, software livre, privacidade e desenvolvimento, com fontes e contexto prático."
+excerpt_en: "News and analysis about AI, Linux, open source, privacy and development, with sources and practical context."
+lang: en
+translation_pt: /radar-tech/
+translation_en: /en/radar-tech/
+---
+<section class="content-container radar-category">
+<div class="radar-kicker"><span class="radar-dot"></span> 4u-Labs / RADAR TECH</div>
+<h1>Radar Tech<span class="accent">.</span></h1>
+<p class="radar-intro">{% if page.lang == 'en' %}Trending technology, explained in context. We connect announcements with their practical implications for people who use and build software.{% else %}Tecnologia em alta, explicada com contexto. Conectamos os anúncios às consequências práticas para quem usa e desenvolve software.{% endif %}</p>
+<p>{% if page.lang == 'en' %}AI · Linux · Open source · Privacy · Development{% else %}IA · Linux · Software livre · Privacidade · Desenvolvimento{% endif %}</p>
+<div class="radar-list">
+{% for post in site.posts %}{% if post.radar %}
+<article><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d/%m/%Y" }}</time><h2><a href="{% if page.lang == 'en' %}{{ post.translation_en }}{% else %}{{ post.url }}{% endif %}">{% if page.lang == 'en' %}{{ post.title_en | escape }}{% else %}{{ post.title | escape }}{% endif %}</a></h2><p>{% if page.lang == 'en' %}{{ post.excerpt_en | escape }}{% else %}{{ post.excerpt | escape }}{% endif %}</p></article>
+{% endif %}{% endfor %}
+</div>
+<aside class="radar-disclosure"><strong>{% if page.lang == 'en' %}How we publish{% else %}Como publicamos{% endif %}</strong><p>{% if page.lang == 'en' %}Original analysis with linked sources and AI-assisted research, writing and translation. We distinguish announcements from tested results. Our initial supervised pilot prioritizes source checking and corrections. Editorial contact: {% else %}Análise original com fontes e assistência de IA na pesquisa, redação e tradução. Diferenciamos anúncios de resultados testados. O piloto inicial supervisionado prioriza checagem de fontes e correções. Contato editorial: {% endif %}<a href="mailto:contato@4u.ia.br">contato@4u.ia.br</a>.</p></aside>
+</section>

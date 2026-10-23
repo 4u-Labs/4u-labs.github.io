@@ -3,161 +3,66 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0f19">
-
-  <!-- Anti-Cache Directives (Prevents stale browser caching) -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-
-  <!-- Primary Meta Tags -->
-  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="title" content="{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta name="author" content="Fabiano Braga // 4U.IA.BR">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="google-site-verification" content="OFI128Dh47mWX9s7M-aFk3dbyDZCSR9sXUMOURV8bDs">
-  <meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ', ' }}, {% endif %}webassembly, webgpu, pwa, zeroknowledge, corelclone, cadclone, photoclone, 4u.ia.br, engenharia de software">
-
-  <!-- Canonical & Multilingual Alternates -->
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <link rel="alternate" hreflang="pt-BR" href="{{ page.url | replace:'index.html','' | absolute_url }}?lang=pt">
-  <link rel="alternate" hreflang="en-US" href="{{ page.url | replace:'index.html','' | absolute_url }}?lang=en">
-  <link rel="alternate" hreflang="x-default" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-
-  <!-- Favicons & PWA Manifest -->
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | relative_url }}">
-  <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | relative_url }}">
-  <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
-
-  <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
-  <meta property="og:site_name" content="{{ site.title }}">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:locale:alternate" content="en_US">
-  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
-  <meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="og:image" content="https://4u.ia.br/capa.webp">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="{{ site.title }}">
-
-  {% if page.layout == 'post' %}
-  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
-  <meta property="article:author" content="https://www.linkedin.com/in/fbr4g4/">
-  {% for tag in page.tags %}
-  <meta property="article:tag" content="{{ tag }}">
-  {% endfor %}
+  {% assign seo_title = page.title | default: site.title %}
+  {% assign seo_description = page.excerpt | default: site.description | strip_html | strip_newlines %}
+  {% if page.lang == 'en' %}
+    {% assign seo_title = page.title_en | default: page.title %}
+    {% assign seo_description = page.excerpt_en | default: seo_description %}
   {% endif %}
-
-  <!-- Twitter / X Cards -->
+  {% assign seo_image = page.image | default: '/fav.webp' | absolute_url %}
+  {% assign seo_url = page.url | replace: 'index.html', '' | absolute_url %}
+  {% assign seo_lang = 'pt-BR' %}{% assign seo_locale = 'pt_BR' %}
+  {% if page.lang == 'en' %}{% assign seo_lang = 'en' %}{% assign seo_locale = 'en_US' %}{% endif %}
+  <title>{{ seo_title | escape }} — {{ site.title | escape }}</title>
+  <meta name="description" content="{{ seo_description | truncate: 165 | escape }}">
+  <meta name="author" content="{{ page.author | default: 'Fabiano Braga // 4U.IA.BR' | escape }}">
+  <meta name="robots" content="{% if page.noindex %}noindex, nofollow, noarchive{% else %}index, follow, max-image-preview:large{% endif %}">
+  <meta name="google-site-verification" content="OFI128Dh47mWX9s7M-aFk3dbyDZCSR9sXUMOURV8bDs">
+  {% unless page.noindex %}<link rel="canonical" href="{{ seo_url }}">{% endunless %}
+  {% if page.translation_pt and page.translation_en %}
+  <link rel="alternate" hreflang="pt-BR" href="{{ page.translation_pt | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ page.translation_en | absolute_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ page.translation_pt | absolute_url }}">
+  {% endif %}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  <meta property="og:locale" content="{{ seo_locale }}">
+  <meta property="og:type" content="{% if page.layout == 'post' or page.layout == 'radar-post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ seo_url }}">
+  <meta property="og:title" content="{{ seo_title | escape }}">
+  <meta property="og:description" content="{{ seo_description | truncate: 200 | escape }}">
+  <meta property="og:image" content="{{ seo_image }}">
+  <meta property="og:image:alt" content="{{ page.image_alt | default: seo_title | escape }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@fbr4g4">
-  <meta name="twitter:creator" content="@fbr4g4">
-  <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ site.description }}{% endif %}">
-  <meta name="twitter:image" content="https://4u.ia.br/capa.webp">
-
-  <!-- Schema.org JSON-LD Structured Data for Google -->
-  {% if page.layout == 'post' %}
+  <meta name="twitter:title" content="{{ seo_title | escape }}">
+  <meta name="twitter:description" content="{{ seo_description | truncate: 200 | escape }}">
+  <meta name="twitter:image" content="{{ seo_image }}">
+  {% if page.layout == 'post' or page.layout == 'radar-post' %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  {% if page.last_modified_at %}<meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": {{ page.title | jsonify }},
-    "description": {{ page.excerpt | strip_html | strip_newlines | truncate: 200 | jsonify }},
-    "image": "https://4u.ia.br/capa.webp",
-    "inLanguage": ["pt-BR", "en-US"],
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "{{ page.url | replace:'index.html','' | absolute_url }}"
-    },
-    "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "dateModified": "{{ page.date | date_to_xmlschema }}",
-    "author": {
-      "@type": "Person",
-      "name": "Fabiano Braga",
-      "url": "https://www.linkedin.com/in/fbr4g4/",
-      "sameAs": [
-        "https://github.com/4u-Labs",
-        "https://x.com/fbr4g4",
-        "https://www.instagram.com/fbr4g4/"
-      ]
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "4U.IA.BR",
-      "url": "https://4u.ia.br",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://4u.ia.br/fav.webp"
-      }
-    }
-  }
+  {"@context":"https://schema.org","@type":"BlogPosting",
+   "headline":{{ seo_title | jsonify }},"description":{{ seo_description | jsonify }},
+   "image":{{ seo_image | jsonify }},"inLanguage":{{ seo_lang | jsonify }},
+   "mainEntityOfPage":{"@type":"WebPage","@id":{{ seo_url | jsonify }}},
+   "datePublished":{{ page.date | date_to_xmlschema | jsonify }},
+   "dateModified":{{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+   "author":{"@type":"{% if page.radar %}Organization{% else %}Person{% endif %}","name":{{ page.author | default: 'Fabiano Braga' | jsonify }},"url":"{% if page.radar %}https://4u-labs.github.io/radar-tech/{% else %}https://4u-labs.github.io/sobre/{% endif %}"},
+   "publisher":{"@type":"Organization","name":"4u-Labs","url":"https://4u.ia.br/","logo":{"@type":"ImageObject","url":"https://4u-labs.github.io/fav.webp"}}}
   </script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "{{ '/' | absolute_url }}"
-      },
-      {% if page.categories.first %}
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": {{ page.categories.first | jsonify }},
-        "item": "{{ '/' | absolute_url }}?filter={{ page.categories.first | url_encode }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": {{ page.title | jsonify }},
-        "item": "{{ page.url | replace:'index.html','' | absolute_url }}"
-      }
-      {% else %}
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": {{ page.title | jsonify }},
-        "item": "{{ page.url | replace:'index.html','' | absolute_url }}"
-      }
-      {% endif %}
-    ]
-  }
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Blog","item":"https://4u-labs.github.io/"},
+  {% if page.radar %}{"@type":"ListItem","position":2,"name":"Radar Tech","item":"{{ '/radar-tech/' | absolute_url }}"}, {% endif %}
+  {"@type":"ListItem","position":{% if page.radar %}3{% else %}2{% endif %},"name":{{ seo_title | jsonify }},"item":{{ seo_url | jsonify }}}]}
   </script>
   {% else %}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "4U.IA.BR Tech Blog",
-    "url": "https://4u-labs.github.io",
-    "description": {{ site.description | jsonify }},
-    "inLanguage": ["pt-BR", "en-US"],
-    "publisher": {
-      "@type": "Organization",
-      "name": "4U.IA.BR",
-      "url": "https://4u.ia.br",
-      "logo": "https://4u.ia.br/fav.webp",
-      "sameAs": [
-        "https://github.com/4u-Labs",
-        "https://www.linkedin.com/in/fbr4g4/",
-        "https://x.com/fbr4g4",
-        "https://www.instagram.com/fbr4g4/",
-        "https://www.youtube.com/@fbr4g4"
-      ]
-    }
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"4u-Labs Tech Blog","url":"https://4u-labs.github.io/"}</script>
   {% endif %}
-
   <!-- Web Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -183,4 +88,5 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ "/assets/css/radar.css" | relative_url }}?v=1">
 </head>

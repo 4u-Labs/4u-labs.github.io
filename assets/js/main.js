@@ -16,6 +16,8 @@ function matchesAllTokens(targetNormalized, queryNormalized) {
 }
 
 function getPreferredLanguage() {
+  const pageLang = document.documentElement.dataset.pageLang;
+  if (pageLang === 'pt' || pageLang === 'en') return pageLang;
   try {
     const urlParams = new URLSearchParams(window.location.search);
     const langParam = urlParams.get('lang');
@@ -31,7 +33,15 @@ function getPreferredLanguage() {
 
 function setBlogLang(lang) {
   if (lang !== 'en' && lang !== 'pt') lang = 'pt';
+  const fixedLang = document.documentElement.dataset.pageLang;
+  const targetUrl = document.documentElement.dataset[lang === 'en' ? 'urlEn' : 'urlPt'];
+  if (fixedLang && fixedLang !== lang && targetUrl) {
+    try { localStorage.setItem('4ulabs_blog_lang', lang); } catch(e) {}
+    window.location.assign(targetUrl);
+    return;
+  }
   document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
   try {
     localStorage.setItem('4ulabs_blog_lang', lang);
   } catch(e) {}

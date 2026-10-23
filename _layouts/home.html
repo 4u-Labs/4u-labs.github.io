@@ -91,7 +91,9 @@ layout: default
     </div>
   </div>
 
+  <p class="radar-home-link"><a href="{{ '/radar-tech/' | relative_url }}">Radar Tech</a> · <span data-lang="pt">Tecnologia em alta, explicada com contexto.</span><span data-lang="en">Trending technology, explained in context.</span></p>
   <div class="category-filters">
+    <button class="filter-btn" data-filter="Radar Tech">Radar Tech</button>
     <button class="filter-btn active" data-filter="all">
       <span data-lang="pt">Todos ({{ site.posts.size }})</span>
       <span data-lang="en">All ({{ site.posts.size }})</span>
@@ -157,6 +159,7 @@ layout: default
                 {% when 'Produtividade' %}<i class="fas fa-briefcase"></i>
                 {% when 'Automação' %}<i class="fas fa-robot"></i>
                 {% when 'Retrogaming' %}<i class="fas fa-gamepad"></i>
+                {% when 'Radar Tech' %}<i class="fas fa-satellite-dish"></i>
                 {% when 'Tecnologia' %}<i class="fas fa-microchip"></i>
                 {% else %}<i class="fas fa-tag"></i>
               {% endcase %}

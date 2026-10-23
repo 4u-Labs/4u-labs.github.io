@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<article class="post-article radar-article">
+  <header class="post-header"><div class="content-container">
+    <nav class="radar-breadcrumb" aria-label="Breadcrumb"><a href="/">Blog</a> / <a href="{% if page.lang == 'en' %}/en/radar-tech/{% else %}/radar-tech/{% endif %}">Radar Tech</a></nav>
+    <div class="radar-kicker"><span class="radar-dot"></span> RADAR TECH <span>4u-Labs</span></div>
+    <h1 class="post-title">{% if page.lang == 'en' %}{{ page.title_en | escape }}{% else %}{{ page.title | escape }}{% endif %}</h1>
+    <p class="radar-deck">{% if page.lang == 'en' %}{{ page.excerpt_en | escape }}{% else %}{{ page.excerpt | escape }}{% endif %}</p>
+    <div class="radar-meta">{{ page.author }} · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d/%m/%Y" }}</time> · {{ page.reading_minutes | default: 5 }} min · <a href="{{ page.translation_pt }}" lang="pt-BR" hreflang="pt-BR">Português</a> / <a href="{{ page.translation_en }}" lang="en" hreflang="en">English</a></div>
+    {% if page.last_modified_at %}<p class="radar-meta">{% if page.lang == 'en' %}Updated{% else %}Atualizado{% endif %}: {{ page.last_modified_at | date: "%d/%m/%Y" }}</p>{% endif %}
+  </div></header>
+  <div class="content-container post-body">
+    <figure class="radar-cover"><img src="{{ page.image }}" alt="{{ page.image_alt | escape }}" width="1600" height="900" fetchpriority="high"><figcaption>{% if page.lang == 'en' %}4u-Labs illustration. Not a screenshot of the application.{% else %}Ilustração 4u-Labs. Não representa uma captura do aplicativo.{% endif %}</figcaption></figure>
+    <div class="radar-copy">{{ content }}</div>
+    <aside class="radar-disclosure"><strong>{% if page.lang == 'en' %}Editorial transparency{% else %}Transparência editorial{% endif %}</strong><p>{% if page.lang == 'en' %}Research, writing and translation assisted by AI, based on the linked sources. This article is an analysis of published information; it does not claim hands-on product testing. Corrections: <a href="mailto:contato@4u.ia.br">contato@4u.ia.br</a>.{% else %}Pesquisa, redação e tradução com assistência de IA, a partir das fontes indicadas. Este artigo analisa informações publicadas e não representa um teste prático do produto. Correções: <a href="mailto:contato@4u.ia.br">contato@4u.ia.br</a>.{% endif %}</p></aside>
+    <section class="radar-related"><h2>{% if page.lang == 'en' %}Keep exploring{% else %}Continue explorando{% endif %}</h2><ul>
+    {% for link in page.related %}<li><a href="{{ link.url }}">{% if page.lang == 'en' %}{{ link.title_en | default: link.title }}{% else %}{{ link.title }}{% endif %}</a></li>{% endfor %}
+    <li><a href="{% if page.lang == 'en' %}/en/radar-tech/{% else %}/radar-tech/{% endif %}">{% if page.lang == 'en' %}All Radar Tech articles{% else %}Todos os artigos do Radar Tech{% endif %}</a></li></ul></section>
+  </div>
+</article>

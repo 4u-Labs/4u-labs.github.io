@@ -24,6 +24,15 @@ plugins:
   - jekyll-sitemap
 
 exclude:
+  - automation
+  - scripts
+  - tests
+  - work
+  - vendor
+  - .bundle
+  - requirements.txt
   - README.md
   - Gemfile
   - Gemfile.lock
+
+timezone: America/Sao_Paulo
