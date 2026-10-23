@@ -7,7 +7,7 @@ excerpt: A prévia do Myna leva o reconhecimento de voz ao próprio computador. 
   e o que avaliar antes de adotar.
 excerpt_en: The Myna preview brings speech recognition onto the computer itself. Explore its approach, limitations
   and what to check before adopting it.
-date: 2026-10-22 21:20:00 -0300
+date: 2026-10-22 21:19:00 -0300
 categories:
 - Radar Tech
 tags:
