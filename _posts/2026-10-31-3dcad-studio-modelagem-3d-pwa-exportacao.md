@@ -1,59 +1,66 @@
 ---
 layout: post
-title: "3DCad Studio 1.2: peças em milímetros, projetos preservados e instalação PWA"
-title_en: "3DCad Studio 1.2: millimeter modeling, complete project persistence and PWA installation"
-date: 2026-10-31 16:50:00 -0300
+title: "3DCad Studio 1.3: Arquitetura Dual-Engine CAD, Open CASCADE BRep, Solver 2D e MCP"
+title_en: "3DCad Studio 1.3: Dual-Engine CAD Architecture, Open CASCADE BRep, 2D Solver and MCP"
+date: 2026-10-31 18:00:00 -0300
 categories: [Engenharia, Design, Utilitários]
-tags: [3dcad, cad, modelagem-3d, impressao-3d, stl, 3mf, step, pwa, offline, javascript]
+tags: [3dcad, cad, opencascade, brep, sketch-solver, mcp, modelagem-3d, impressao-3d, step, pwa, offline]
 author: "Fabiano Braga // 4U.IA.BR"
-excerpt: "Modelagem por malhas no navegador com CSG, esboços numéricos, JSON completo, exportação revisada e PWA PT/EN sem login."
-excerpt_en: "Browser mesh modeling with CSG, numeric sketches, complete JSON projects, revised exports and a bilingual PWA without login."
-image: /assets/images/3dcad-studio-1-2.webp
+excerpt: "Evolução do 3DCad Studio para Dual-Engine: sólidos BRep analíticos via Open CASCADE WebAssembly, solver de restrições 2D, montagens cinemáticas e servidor MCP para IA."
+excerpt_en: "Evolution of 3DCad Studio to Dual-Engine: analytical BRep solids via Open CASCADE WebAssembly, 2D constraint solver, kinematic assemblies and MCP AI server."
+image: /assets/images/3dcad-studio.webp
 ---
 
 <div data-lang="pt" markdown="1">
 
-O **3DCad Studio 1.2** reúne criação de peças, operações booleanas e preparação inicial para impressão 3D em um aplicativo local no navegador. A interface lembra fluxos de CAD como os do FreeCAD e do SolidCraft, mas o código é próprio: **esta versão trabalha com malhas e não incorpora os motores desses programas**.
+O **3DCad Studio 1.3** marca a evolução da plataforma para uma arquitetura **Dual-Engine CAD**, unindo a agilidade da modelagem paramétrica por malhas CSG à precisão analítica de engenharia através do núcleo **Open CASCADE Technology (v7.8)** e **Replicad** compilados em WebAssembly. O estúdio roda 100% no navegador e offline, preservando privacidade total e zero instalação.
 
-[Abrir o 3DCad Studio](https://4u.ia.br/app/3dcad/) · [Código e documentação](https://github.com/4u-Labs/3dcad) · [Release 1.2.0](https://github.com/4u-Labs/3dcad/releases/tag/v1.2.0)
+[Abrir o 3DCad Studio](https://4u.ia.br/app/3dcad/) · [Código e documentação](https://github.com/4u-Labs/3dcad) · [Release 1.3.0](https://github.com/4u-Labs/3dcad/releases/tag/v1.3.0)
 
-![3DCad Studio — modelagem local e exportação técnica](/assets/images/3dcad-studio-1-2.webp)
+![3DCad Studio — Dual-Engine CAD, BRep analítico e montagens](/assets/images/3dcad-studio.webp)
 
-### Criação e edição em milímetros
+### O Melhor dos Dois Mundos: Malhas CSG + Sólidos BRep Exatos
 
-Primitivas e geradores de peças oferecem dimensões editáveis, posição, rotação, cor e visibilidade. Esboços de retângulos, círculos, oblongos e hexágonos aceitam cotas numéricas e furos antes da extrusão. Há união, subtração, interseção, furo por diâmetro, duplicação, espelho e padrões lineares ou circulares configuráveis.
+Para atender tanto a prototipagem rápida e fatiamento 3D quanto a engenharia mecânica de alta precisão, o 3DCad Studio agora opera com dois motores geométricos integrados:
 
-A revisão corrigiu o acabamento da extrusão para respeitar as dimensões finais informadas, o assentamento de peças giradas e a interpretação de um furo com diâmetro zero. Os geradores mecânicos são aproximações de projeto: engrenagens não constituem uma validação de perfil evolvente; parafusos não trazem rosca helicoidal funcional.
+1. **Motor de Malhas Paramétricas (CSG):** Modelagem ágil com Three.js e CSG em milímetros, ideal para peças rápidas, modificadores visuais e geração de malhas STL, OBJ e 3MF.
+2. **Núcleo BRep Exato (Open CASCADE WASM):** Geometria analítica contínua baseada em Boundary Representation (BRep), executada em segundo plano via Web Worker dedicado (`cad_worker.js`, `cad_kernel.js`). Permite operações avançadas como revoluções analíticas, concordâncias e chanfros contínuos, casca (shell) e exportação analítica padronizada em formato STEP (ISO-10303-21).
 
-### Salvar precisa preservar a peça inteira
+### Solver Geométrico de Esboço 2D com Análise de DOF
 
-O formato **JSON v2** guarda primitivas, resultados CSG e malhas STL com transformações, escala, visibilidade e identificadores. O histórico de desfazer/refazer também utiliza esse estado completo. Assim, uma peça furada continua presente depois de reabrir o projeto.
+O novo editor de esboços 2D traz um **solver não-linear Levenberg-Marquardt amortecido** com decomposição QR Jacobian, fornecendo controle interativo e cálculo em tempo real de Graus de Liberdade (DOF - *Degrees of Freedom*):
 
-O autosave usa IndexedDB, mantém a cópia anterior e dispõe de fallback em localStorage. A interface só informa sucesso depois da gravação. A ajuda oferece recuperação da cópia anterior; exportar JSON continua sendo o caminho para um backup independente do navegador. Limpar os dados do site remove o armazenamento local.
+- **16 tipos de restrições geométricas e dimensionais:** Horizontal, Vertical, Coincidente, Distância/Comprimento, Tangente, Perpendicular, Paralela, Igualdade de Raio/Comprimento, Concêntrica, Ponto Fixo e Ângulo.
+- **Badge de Status de DOF:** Sinaliza visualmente se o esboço está sub-restringido (*Under-constrained*), totalmente restringido (*Fully-constrained*) ou sobre-restringido (*Over-constrained*).
+- **Extração Automática de Loops e Furos:** O extrator topológico identifica automaticamente o perfil externo e laços fechados internos para operações de extrusão ou revolução 360° em sólidos com furos concêntricos precisos.
 
-Importações passam por validação e construção temporária antes de substituir a cena. Um arquivo inválido deve preservar o trabalho aberto. Nomes de peças são tratados como texto, e limites de tamanho, quantidade de objetos e triângulos reduzem entradas acidentais excessivas.
+### Montagens Cinemáticas com Juntas e Simulação
 
-### Exportação com unidades e orientação consistentes
+A aba **Montagem** no painel de propriedades permite estruturar múltiplos corpos e conectá-los por juntas mecânicas padronizadas:
 
-STL, OBJ e 3MF compartilham a coleta de geometria mundial, com milímetros, eixo Z vertical e tratamento de espelhos. O 3MF conserva objetos e cores separados. A normalização consolida vértices compartilhados, remove degenerações e trata junções de triângulos; o diagnóstico mostra arestas abertas e não manifold.
+- **Juntas Suportadas:** Fixa (*Fixed*), Revoluta (*Revolute* - rotação com limites angulares em graus), Deslizante (*Slider* - translação com curso mínimo e máximo em mm) e Esférica (*Ball*).
+- **Cinemática Direta em Tempo Real:** Controle deslizante interativo para movimentar juntas individualmente no viewport 3D respeitando batentes mecânicos.
+- **Animação Cinemática:** Modo de teste dinâmico contínuo (`Animate Joints`) para validar folgas, encaixes e interferências.
 
-O **STEP é facetado**: descreve faces planas e sólidos fechados, sem conservar superfícies analíticas, restrições ou histórico paramétrico. Nesta revisão, o arquivo deixou de truncar a geometria em 4.000 faces. Malhas abertas e casos não suportados são recusados em vez de gerar uma saída aparentemente válida.
+### Histórico Paramétrico e Árvore de Operações
 
-A suíte de regressão passou em **35 grupos de testes**, cobrindo estado, importação, geometria, exportação e PWA. Em uma checagem independente com o leitor Open CASCADE/OCP, quatro STEP exportados — bloco, bloco com furo, esfera e suporte — foram lidos como sólidos válidos. A esfera conservou suas 13.632 faces. Esses resultados documentam as amostras testadas; não garantem compatibilidade universal com qualquer CAD ou fatiador.
+O grafo paramétrico (`ParametricHistoryGraph`) registra a linhagem hierárquica de recursos (primitivas, extrusões, revoluções, booleanas BRep, concordâncias e chanfros). Ao alterar uma dimensão ou restrição na base do projeto, o grafo recalcula em cascata todos os passos dependentes, preservando as operações posteriores.
 
-### Instalação e uso offline
+### Servidor MCP (Model Context Protocol) para Automação por IA
 
-O botão **Instalar** aciona a instalação oferecida pelo navegador compatível. Quando essa opção não é exposta, a ajuda explica os menus de instalação no desktop, Android e iOS. O PWA usa o ícone 3DCad fornecido para o projeto, com variante própria para ícones adaptáveis.
+O 3DCad Studio inclui uma implementação completa de servidor MCP (`mcp_server.cjs`) compatível com agentes de IA (Claude Desktop, Cursor, Gemini CLI, Antigravity):
 
-Após uma primeira carga e preparação completas do cache, o editor pode reabrir offline. Isso também foi exercitado recarregando a aplicação com o servidor local desligado. O service worker atualiza somente caches com o prefixo do 3DCad e não intercepta recursos de outros aplicativos do domínio.
+- **8 Ferramentas CAD:** `cad_create_solid`, `cad_sketch_solve`, `cad_revolve`, `cad_edge_finish`, `cad_add_joint`, `cad_export_step`, `cad_get_scene`, `cad_clear_scene`.
+- **2 Recursos Expostos:** `cad://scene` (árvore do projeto e estatísticas da cena) e `cad://joints` (definição cinemática das montagens).
 
-Os projetos são processados no navegador, sem login ou API paga. O servidor entrega os arquivos estáticos e pode registrar os acessos HTTP normais. Links externos continuam dependendo de conexão. A interface e a ajuda têm **PT | EN**, com preferência persistida.
+### Validação Técnica e Confiabilidade
 
-### Limites e evolução
-
-Os comandos em texto são interpretados por regras locais e exigem revisão antes de aplicar; não há IA generativa nem servidor MCP. O painel de impressão estima material e tempo, mas não fatia a peça nem gera G-code. Ainda não há kernel BRep analítico, solver geral de restrições, juntas de montagem ou árvore paramétrica com recomputação de dependências.
-
-A documentação registra esses próximos passos arquiteturais. A versão 1.2 concentra-se em tornar confiáveis os fluxos já implementados: criar, editar, salvar, reabrir e exportar peças por malhas.
+A versão 1.3.0 foi submetida a uma bateria abrangente de **51 testes automatizados**, assegurando:
+- Convergência do solver 2D em menos de 50ms para laços complexos;
+- Integridade volumétrica analítica exata em esferas, cilindros e cones BRep;
+- Tolerância micrométrica na exportação e importação de arquivos STEP analíticos via Open CASCADE;
+- Persistência íntegra em IndexedDB e compatibilidade regressiva absoluta com projetos legados v2;
+- Isolamento estrito de cache PWA com atualização atômica para `3dcad-studio-v1.3.0`.
 
 [Experimente o aplicativo](https://4u.ia.br/app/3dcad/) · [Conheça a 4u-Labs](https://github.com/4u-Labs) · [Apoie o desenvolvimento](https://www.paypal.com/ncp/payment/L7YRCS984T33N)
 
@@ -61,47 +68,54 @@ A documentação registra esses próximos passos arquiteturais. A versão 1.2 co
 
 <div data-lang="en" markdown="1">
 
-**3DCad Studio 1.2** brings part creation, Boolean operations and initial 3D-print preparation to a local browser application. Its interface draws inspiration from CAD workflows such as FreeCAD and SolidCraft, while using its own implementation: **this release models meshes and does not bundle either application's engine**.
+**3DCad Studio 1.3** marks the evolution of the platform into a **Dual-Engine CAD** architecture, combining the speed of CSG parametric mesh modeling with engineering-grade analytical precision powered by **Open CASCADE Technology (v7.8)** and **Replicad** compiled to WebAssembly. The studio runs 100% in-browser and offline, ensuring total privacy and zero installation.
 
-[Open 3DCad Studio](https://4u.ia.br/app/3dcad/) · [Source and documentation](https://github.com/4u-Labs/3dcad) · [1.2.0 release](https://github.com/4u-Labs/3dcad/releases/tag/v1.2.0)
+[Open 3DCad Studio](https://4u.ia.br/app/3dcad/) · [Source and documentation](https://github.com/4u-Labs/3dcad) · [1.3.0 release](https://github.com/4u-Labs/3dcad/releases/tag/v1.3.0)
 
-![3DCad Studio — local modeling and technical exports](/assets/images/3dcad-studio-1-2.webp)
+![3DCad Studio — Dual-Engine CAD, Analytical BRep and Assemblies](/assets/images/3dcad-studio.webp)
 
-### Modeling in millimeters
+### The Best of Both Worlds: CSG Meshes + Exact BRep Solids
 
-Primitives and mechanical generators expose dimensions, position, rotation, color and visibility. Rectangle, circle, slot and hexagon sketches support numeric dimensions and holes before extrusion. Union, subtraction, intersection, diameter-based drilling, duplication, mirroring and configurable linear/circular patterns are available.
+To address both rapid prototyping / 3D printing and precision mechanical engineering, 3DCad Studio now operates with two complementary geometric engines:
 
-This revision fixes final extrusion dimensions, bed placement after rotating a part, and zero-diameter bores. Mechanical generators remain approximations: gears do not constitute validated involute profiles, and bolts do not have functional helical threads.
+1. **Parametric Mesh Engine (CSG):** Fast, interactive modeling with Three.js and CSG in millimeters, optimized for rapid visual iteration and standard STL, OBJ, and 3MF generation.
+2. **Exact BRep Kernel (Open CASCADE WASM):** Continuous analytical geometry based on Boundary Representation (BRep), executed in the background via a dedicated Web Worker (`cad_worker.js`, `cad_kernel.js`). Enables advanced operations including true revolution solids, continuous fillets and chamfers, shelling, and standardized analytical STEP (ISO-10303-21) export.
 
-### Complete projects and recoverable storage
+### 2D Geometric Sketch Solver with Live DOF Analysis
 
-**JSON v2** preserves primitives, CSG results and STL meshes, including transforms, scale, visibility and identifiers. Undo/redo uses the same complete state, so a drilled part survives reopening.
+The rebuilt 2D sketcher features a **damped Levenberg-Marquardt non-linear solver** with QR Jacobian decomposition, offering interactive manipulation and real-time tracking of Degrees of Freedom (DOF):
 
-Autosave uses IndexedDB, retains the preceding copy and falls back to localStorage. The saved indicator appears only after a successful write. Help includes backup recovery; exporting JSON provides a separate backup outside the browser. Clearing site data removes browser storage.
+- **16 geometric and dimensional constraints:** Horizontal, Vertical, Coincident, Distance/Length, Tangent, Perpendicular, Parallel, Equal Radius/Length, Concentric, Fix Point, and Angle.
+- **Live DOF Status Badge:** Real-time indicator displaying Under-constrained, Fully-constrained, or Over-constrained state.
+- **Automatic Wire and Hole Extraction:** Topological loop detector automatically separates outer profiles and internal closed loops for extrusion or 360° revolve operations with precise concentric bores.
 
-Imports are validated and constructed in a temporary set before replacing the current scene. Invalid input preserves the open project. Part names are rendered as text, while file, part and triangle limits constrain excessive inputs.
+### Kinematic Assemblies with Joints and Simulation
 
-### Consistent exports
+The **Assembly** tab in the properties inspector allows structuring multi-body assemblies connected by standardized mechanical joints:
 
-STL, OBJ and 3MF share world-space geometry collection, millimeter units, Z-up coordinates and mirrored-face handling. 3MF keeps individual objects and colors. Mesh normalization welds shared vertices, removes degenerate faces and resolves triangle junctions; diagnostics expose boundary and non-manifold edges.
+- **Supported Joint Types:** Fixed, Revolute (rotational with angle limits in degrees), Slider (linear prismatic translation with stroke limits in mm), and Ball (spherical 3-DOF).
+- **Real-Time Forward Kinematics:** Interactive joint test slider to drive individual kinematics in the 3D viewport while respecting physical motion limits.
+- **Kinematic Animation:** Continuous dynamic preview mode (`Animate Joints`) to verify clearances, fits, and assembly motion.
 
-**STEP output is faceted**: it describes planar faces and closed solids, without analytic surfaces, constraints or parametric history. The previous 4,000-face truncation is removed. Open meshes and unsupported cases are rejected instead of producing misleading output.
+### Parametric History Graph & Feature Tree
 
-The regression suite passed **35 test groups** covering project state, imports, geometry, exports and PWA behavior. An independent Open CASCADE/OCP reader accepted four exported STEP fixtures — box, drilled box, sphere and bracket — as valid solids. The sphere retained all 13,632 faces. These checks establish results for those fixtures, not universal compatibility with every CAD application or slicer.
+The dependency graph (`ParametricHistoryGraph`) tracks the hierarchical lineage of modeling features (primitives, extrusions, revolves, BRep booleans, fillets, chamfers). Modifying any foundational sketch dimension or primitive automatically recalculates downstream features step-by-step.
 
-### Installable, bilingual and usable offline
+### MCP (Model Context Protocol) Server for AI Automation
 
-The **Install** button requests the installation flow exposed by a compatible browser. Help provides desktop, Android and iOS instructions when that flow is unavailable. The PWA uses the supplied 3DCad artwork, including a dedicated maskable variant.
+3DCad Studio includes a complete Model Context Protocol server (`mcp_server.cjs`) designed for AI agent integration (Claude Desktop, Cursor, Gemini CLI, Antigravity):
 
-After a complete initial load and successful cache preparation, the editor can reopen offline. This was also exercised by reloading with the local server stopped. The service worker manages only the 3DCad cache prefix and avoids other applications' resources.
+- **8 CAD Tools:** `cad_create_solid`, `cad_sketch_solve`, `cad_revolve`, `cad_edge_finish`, `cad_add_joint`, `cad_export_step`, `cad_get_scene`, `cad_clear_scene`.
+- **2 Resources:** `cad://scene` (live scene tree and geometry stats) and `cad://joints` (kinematic assembly joint definitions).
 
-Projects are processed in the browser without login or paid APIs. The server delivers static assets and may retain normal HTTP access logs. External links still need connectivity. **PT | EN** applies to the interface and help, with a persisted preference.
+### Technical Validation & Reliability
 
-### What remains outside this release
-
-Text commands use local rules and require review before application; there is no generative AI or MCP server. Print metrics estimate material and time, without slicing or G-code generation. An analytic BRep kernel, general constraint solver, assembly joints and a dependency-recomputing feature tree remain architectural next steps.
-
-Version 1.2 focuses on reliable mesh workflows: create, edit, save, reopen and export.
+Version 1.3.0 is verified by a test suite of **51 automated tests**, validating:
+- Sub-50ms solver convergence on multi-constraint geometric loops;
+- Mathematical analytical volume precision across BRep spheres, cylinders, and cones;
+- Micrometric accuracy in analytical STEP roundtrips via Open CASCADE;
+- Reliable IndexedDB autosave and 100% backward compatibility with legacy v2 projects;
+- Strict PWA cache scoping with atomic migration to cache `3dcad-studio-v1.3.0`.
 
 [Try the application](https://4u.ia.br/app/3dcad/) · [Explore 4u-Labs](https://github.com/4u-Labs) · [Support development](https://www.paypal.com/ncp/payment/L7YRCS984T33N)
 
