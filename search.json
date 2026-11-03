@@ -7,6 +7,7 @@ layout: null
     "title": {{ post.title | jsonify }},
     "title_en": {{ post.title_en | default: post.title | jsonify }},
     "url": {{ post.url | relative_url | jsonify }},
+    "url_en": {{ post.translation_en | default: post.url | relative_url | jsonify }},
     "date": {{ post.date | date: "%d/%m/%Y" | jsonify }},
     "category": {{ post.categories.first | default: "Geral" | jsonify }},
     "tags": {{ post.tags | jsonify }},

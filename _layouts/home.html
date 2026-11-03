@@ -168,7 +168,7 @@ layout: default
           </div>
         </div>
         <h3 class="card-title">
-          <a href="{{ post.url | relative_url }}">
+          <a href="{{ post.url | relative_url }}"{% if post.translation_en %} data-url-pt="{{ post.url | relative_url }}" data-url-en="{{ post.translation_en | relative_url }}"{% endif %}>
             <span data-lang="pt">{{ post.title }}</span>
             <span data-lang="en">{% if post.title_en %}{{ post.title_en }}{% else %}{{ post.title }}{% endif %}</span>
           </a>
@@ -183,7 +183,7 @@ layout: default
               <button type="button" class="tag-chip" data-search="{{ tag }}" title="Filtrar por #{{ tag }}">#{{ tag }}</button>
             {% endfor %}
           </div>
-          <a href="{{ post.url | relative_url }}" class="read-more">
+          <a href="{{ post.url | relative_url }}"{% if post.translation_en %} data-url-pt="{{ post.url | relative_url }}" data-url-en="{{ post.translation_en | relative_url }}"{% endif %} class="read-more">
             <span data-lang="pt">Ler Artigo</span>
             <span data-lang="en">Read Article</span> 
             <i class="fas fa-arrow-right"></i>

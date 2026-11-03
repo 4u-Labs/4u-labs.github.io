@@ -1,3 +1,7 @@
+function escapeSearchHTML(value) {
+  return String(value == null ? '' : value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
 // 4U.IA.BR Tech Blog Client Scripts, i18n & Instant Search System
 
 function normalizeText(str) {
@@ -70,6 +74,10 @@ function setBlogLang(lang) {
     const ph = modalInput.getAttribute(`data-placeholder-${lang}`);
     if (ph) modalInput.placeholder = ph;
   }
+
+  document.querySelectorAll('a[data-url-pt][data-url-en]').forEach(link => {
+    link.href = link.dataset[lang === 'en' ? 'urlEn' : 'urlPt'];
+  });
 
   // Dispatch custom event if other components need to re-render
   window.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
@@ -460,21 +468,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const excerpt = (lang === 'en' && item.excerpt_en) ? item.excerpt_en : item.excerpt;
         const dateStr = item.date_formatted ? (item.date_formatted[lang] || item.date) : item.date;
 
-        const tagsHtml = (item.tags || []).slice(0, 3).map(t => `<span class="search-modal-tag">#${t}</span>`).join('');
+        const tagsHtml = (item.tags || []).slice(0, 3).map(t => `<span class="search-modal-tag">#${escapeSearchHTML(t)}</span>`).join('');
+        const resultUrl = lang === "en" && item.url_en ? item.url_en : item.url;
 
         html += `
-          <a href="${item.url}" class="search-modal-item ${idx === 0 ? 'active' : ''}" data-index="${idx}">
+          <a href="${escapeSearchHTML(resultUrl)}" class="search-modal-item ${idx === 0 ? 'active' : ''}" data-index="${idx}">
             <div class="search-modal-item-top">
               <span class="search-modal-item-title">
                 <i class="fas fa-file-alt"></i>
-                ${title}
+                ${escapeSearchHTML(title)}
               </span>
               <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
                 <span style="font-size:0.75rem; color:var(--text-dim); font-family:var(--font-mono);">${dateStr}</span>
-                <span class="search-modal-item-category">${item.category}</span>
+                <span class="search-modal-item-category">${escapeSearchHTML(item.category)}</span>
               </div>
             </div>
-            <p class="search-modal-item-excerpt">${excerpt}</p>
+            <p class="search-modal-item-excerpt">${escapeSearchHTML(excerpt)}</p>
             <div class="search-modal-item-tags">
               ${tagsHtml}
             </div>

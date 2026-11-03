@@ -8,3 +8,4 @@ vendor/
 *.sqlite*
 *.log
 __pycache__/
+automation/
