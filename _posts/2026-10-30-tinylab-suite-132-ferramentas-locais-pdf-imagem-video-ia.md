@@ -1,23 +1,23 @@
 ---
 layout: post
-title: "TinyLab v2.1: Suíte com 150 Ferramentas Locais para PDF, Imagens, Vídeo, Planilhas, QR/Barras e IA WebGPU"
+title: "TinyLab v2.1: Suíte com 159 Ferramentas Locais para PDF, Imagens, Vídeo, Planilhas, QR/Barras e IA WebGPU"
 date: 2026-10-30 19:00:00 -0300
 categories: [Produtividade, Utilitários, Inteligência Artificial]
 tags: [tinylab, tinywow, ilovepdf, pdf, ocr, remover-fundo, vetorizar-svg, video, legendas-srt, qr-code, pix, webassembly, webgpu, pwa, privacidade, 4uiabr]
 author: "Fabiano Braga // 4U.IA.BR"
-excerpt: "Alternativa aberta, gratuita e sem anúncios ao TinyWow e iLovePDF com 150 ferramentas client-side em 7 categorias: PDF pesquisável (OCR), PDF ↔ Word/Excel/PPTX/EPUB, PSD/TIFF/ICO, recorte e bokeh com IA, vetorização SVG, timeline de vídeo, TTS e IA local via WebGPU."
-title_en: "TinyLab v2.1: 150 Local Web Tools for PDF, Image, Video, Spreadsheets, QR/Barcodes and WebGPU AI"
-excerpt_en: "An ad-free, local-first alternative to TinyWow and iLovePDF packing 150 browser tools across 7 categories: searchable PDF OCR, PDF ↔ Word/Excel/PPTX/EPUB, PSD/TIFF/ICO, AI cutout & bokeh, SVG vectorization, video timeline & SRT burner, TTS and local WebGPU AI."
+excerpt: "Alternativa aberta, gratuita e sem anúncios ao TinyWow e iLovePDF com 159 ferramentas client-side em 7 categorias: PDF pesquisável (OCR), PDF ↔ Word/Excel/PPTX/EPUB, PSD/TIFF/ICO, recorte e bokeh com IA, vetorização SVG, timeline de vídeo, TTS e IA local via WebGPU."
+title_en: "TinyLab v2.1: 159 Local Web Tools for PDF, Image, Video, Spreadsheets, QR/Barcodes and WebGPU AI"
+excerpt_en: "An ad-free, local-first alternative to TinyWow and iLovePDF packing 159 browser tools across 7 categories: searchable PDF OCR, PDF ↔ Word/Excel/PPTX/EPUB, PSD/TIFF/ICO, AI cutout & bokeh, SVG vectorization, video timeline & SRT burner, TTS and local WebGPU AI."
 image: /assets/images/tinylab-banner.jpg
 ---
 
 <div data-lang="pt" markdown="1">
 
-Converter uma fatura em Excel, assinar um contrato mantendo o texto vetorial, remover apenas o fundo externo de um logotipo sem apagar detalhes internos, gravar legendas `.SRT` em um vídeo para Reels ou gerar um QR Code PIX com logotipo central não deveria exigir enviar documentos sensíveis para servidores desconhecidos nem enfrentar contadores regressivos, filas artificiais e muros de pagamento. O **TinyLab v2.1**, desenvolvido pela **4U.IA.BR**, reúne **150 ferramentas gratuitas em 7 categorias** com processamento **local-first** direto no navegador.
+Converter uma fatura em Excel, assinar um contrato mantendo o texto vetorial, remover apenas o fundo externo de um logotipo sem apagar detalhes internos, gravar legendas `.SRT` em um vídeo para Reels ou gerar um QR Code PIX com logotipo central não deveria exigir enviar documentos sensíveis para servidores desconhecidos nem enfrentar contadores regressivos, filas artificiais e muros de pagamento. O **TinyLab v2.1**, desenvolvido pela **4U.IA.BR**, reúne **159 ferramentas gratuitas em 7 categorias** com processamento **local-first** direto no navegador.
 
 Projetado como uma alternativa completa, bilíngue (**PT-BR / EN**), sem anúncios e instalável como **PWA com modo offline e Web Share Target**, o TinyLab combina motores **WebAssembly**, **WebGPU**, **Canvas** e **Web Workers** para transformar qualquer computador ou smartphone em um canivete suíço digital privado.
 
-![TinyLab v2.1 — 150 Ferramentas Web Livres, Rápidas & Privadas](/assets/images/tinylab-banner.jpg)
+![TinyLab v2.1 — 159 Ferramentas Web Livres, Rápidas & Privadas](/assets/images/tinylab-banner.jpg)
 
 ### 📄 Estúdio PDF & E-books Profissional (35 Ferramentas)
 
