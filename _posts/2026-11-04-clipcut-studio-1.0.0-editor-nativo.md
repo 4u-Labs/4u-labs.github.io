@@ -27,7 +27,7 @@ O ClipCut oferece recursos para editar áudio, transcrever fala com Whisper e es
 
 ### Versões para cada dispositivo
 
-A release traz pacotes nativos para Linux x86_64 e ARM64, Windows x86_64, macOS Intel, Android ARM64 e iOS. O pacote macOS Apple Silicon ainda não está incluído. A versão PWA também pode ser aberta e instalada no navegador. Requisitos e métodos de instalação variam conforme o sistema; consulte as notas e os checksums na página de releases.
+A release traz pacotes nativos para Linux x86_64 e ARM64, Windows x86_64, macOS Intel e Apple Silicon ARM64, Android ARM64 e iOS. A versão PWA também pode ser aberta e instalada no navegador. Requisitos e métodos de instalação variam conforme o sistema; consulte as notas e os checksums na página de releases.
 
 ### Baixar e experimentar
 
@@ -54,7 +54,7 @@ ClipCut includes audio editing, Whisper speech transcription and caption styling
 
 ### Builds for different devices
 
-This release provides native packages for Linux x86_64 and ARM64, Windows x86_64, Intel macOS, Android ARM64 and iOS. The Apple Silicon macOS package is not included yet. The PWA can also be opened and installed from a browser. Requirements and installation methods vary by system; check the release notes and checksums before installing.
+This release provides native packages for Linux x86_64 and ARM64, Windows x86_64, Intel and Apple Silicon ARM64 macOS, Android ARM64 and iOS. The PWA can also be opened and installed from a browser. Requirements and installation methods vary by system; check the release notes and checksums before installing.
 
 ### Download and try it
 
