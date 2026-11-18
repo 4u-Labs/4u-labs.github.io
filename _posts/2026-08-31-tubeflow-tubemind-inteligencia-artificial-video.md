@@ -17,4 +17,4 @@ O ecossistema conta com duas ferramentas complementares de ponta:
 - **TubeMind AI:** Copiloto em extensão para o Google Chrome que lê transcrições de vídeos longos, gera resumos estruturados por tópicos em segundos e permite conversar com o conteúdo do vídeo via chat com IA.
 
 Conheça as ferramentas:  
-👉 [https://4u.ia.br/app/tubeflow/](https://4u.ia.br/app/tubeflow/)
+👉 [BAIXOU!! (evolução do TubeFlow)](https://4u.ia.br/app/baixou/) · [TubeMind AI](https://4u.ia.br/app/tubemind/) · [Extensão TubeMind na Chrome Web Store](https://chromewebstore.google.com/detail/tubemind-ai-%E2%80%94-copiloto-de/hdgfepfflkidaakpgjhjokeakhoojgea)
