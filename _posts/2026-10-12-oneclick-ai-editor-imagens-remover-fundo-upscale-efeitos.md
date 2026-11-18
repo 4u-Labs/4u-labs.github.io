@@ -8,7 +8,7 @@ author: "Fabiano Braga // 4U.IA.BR"
 excerpt: "Um estúdio PT/EN para remover fundos, ampliar imagens, preparar produtos e adesivos, retocar detalhes e exportar em lote, sem APIs de IA pagas."
 title_en: "OneClick AI: Remove Backgrounds, Upscale Images 4× and Apply Effects in a Bilingual Web Studio"
 excerpt_en: "A PT/EN image studio for background removal, upscaling, product layouts, stickers, selective retouching and batch export, without paid AI APIs."
-image: /assets/images/oneclick-ai.png
+image: /assets/images/oneclick-ai.webp
 ---
 
 <div data-lang="pt" markdown="1">
@@ -17,7 +17,7 @@ Preparar uma foto de produto, recortar um logotipo ou transformar uma imagem em 
 
 A ideia nasceu de duas funções que se mostraram úteis no VectorAI: remoção de fundo e ampliação com IA. No OneClick AI, elas ganharam um espaço próprio, acompanhado de efeitos, ajustes, composição para produtos, adesivos e retoques por região.
 
-![OneClick AI — estúdio de imagens](/assets/images/oneclick-ai-studio.png)
+![OneClick AI — estúdio de imagens](/assets/images/oneclick-ai-studio.webp)
 
 ### ✂️ Remoção de fundo com escolha de método
 
@@ -83,7 +83,7 @@ Preparing a product photo, cutting out a logo or turning an image black and whit
 
 It builds on two useful VectorAI features—background removal and AI upscaling—and adds effects, adjustments, product layouts, stickers and selective retouching.
 
-![OneClick AI — image studio](/assets/images/oneclick-ai-studio.png)
+![OneClick AI — image studio](/assets/images/oneclick-ai-studio.webp)
 
 ### ✂️ Background removal with a choice of methods
 

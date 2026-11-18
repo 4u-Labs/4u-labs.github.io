@@ -8,14 +8,14 @@ author: "Fabiano Braga // 4U.IA.BR"
 excerpt: "A versão 1.0.0 do ClipCut Studio reúne edição nativa, timeline multifaixa, áudio e legendas em Linux, Windows, macOS Intel, Android e iOS."
 title_en: "ClipCut Studio 1.0.0: a native video editor with a multitrack timeline"
 excerpt_en: "ClipCut Studio 1.0.0 brings native editing, a multitrack timeline, audio tools and captions to Linux, Windows, Intel macOS, Android and iOS."
-image: /assets/images/clipcut-banner.png
+image: /assets/images/clipcut-banner.webp
 ---
 
 <div data-lang="pt" markdown="1">
 
 O **ClipCut Studio 1.0.0** chega como a primeira release estável do editor nativo da 4U-Labs. A nova versão reúne ferramentas para montar vídeo, organizar faixas de áudio e texto e finalizar projetos no computador ou no celular. A interface web continua disponível para edições rápidas.
 
-![ClipCut Studio — edição de vídeo](/assets/images/clipcut-banner.png)
+![ClipCut Studio — edição de vídeo](/assets/images/clipcut-banner.webp)
 
 ### Edição na timeline
 
@@ -42,7 +42,7 @@ A release traz pacotes nativos para Linux x86_64 e ARM64, Windows x86_64, macOS 
 
 **ClipCut Studio 1.0.0** is the first stable release of 4U-Labs' native editor. It brings together tools to assemble video, arrange audio and text tracks, and finish projects on desktop or mobile. The web interface remains available for quick edits.
 
-![ClipCut Studio — video editing](/assets/images/clipcut-banner.png)
+![ClipCut Studio — video editing](/assets/images/clipcut-banner.webp)
 
 ### Editing on the timeline
 

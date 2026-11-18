@@ -8,7 +8,7 @@ tags: [loja-4u, catalogo-apps, webapps, software-livre, extensoes-chrome, pwa, 4
 author: "Fabiano Braga // 4U.IA.BR"
 excerpt: "Conheça o Hub oficial 4U.IA.BR: catálogo unificado com mais de 90 aplicações web, ferramentas técnicas de engenharia, utilitários de mídia, games retrô e extensões Chromium."
 excerpt_en: "Explore the official 4U.IA.BR Hub: a unified catalog featuring 90+ web applications, technical engineering tools, media utilities, retro games, and Chromium extensions."
-image: /assets/images/icon-512.png
+image: /assets/images/loja-4u-hub.webp
 ---
 
 <div data-lang="pt" markdown="1">

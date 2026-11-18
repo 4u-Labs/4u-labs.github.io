@@ -8,7 +8,7 @@ author: "Fabiano Braga // 4U.IA.BR"
 excerpt: "Um cofre de senhas e autenticador 2FA (TOTP) bilíngue PT/EN com criptografia local AES-256, desbloqueio rápido por impressão digital ou PIN, extensão Chromium e cota de anexos."
 title_en: "4uPass: Password Vault, Biometric Unlock and 2FA Authenticator on a Self-Hosted Infrastructure"
 excerpt_en: "A bilingual PT/EN password vault and 2FA (TOTP) authenticator with client-side AES-256 encryption, biometric or PIN quick unlock, Chromium extension and encrypted attachments."
-image: /assets/images/4upass-banner.png
+image: /assets/images/4upass-banner.webp
 ---
 
 <div data-lang="pt" markdown="1">
@@ -17,7 +17,7 @@ Gerenciar dezenas de credenciais, chaves de verificação em duas etapas (2FA) e
 
 Diferente de soluções comerciais que restringem o gerador de códigos TOTP ou o envio de anexos aos planos pagos, o 4uPass disponibiliza esses recursos gratuitamente para toda a comunidade 4u-Labs, operando sobre infraestrutura própria com criptografia no dispositivo do usuário.
 
-![4uPass — Cofre de Senhas, Biometria & Autenticador 2FA](/assets/images/4upass-banner.png)
+![4uPass — Cofre de Senhas, Biometria & Autenticador 2FA](/assets/images/4upass-banner.webp)
 
 ### 🔐 Criptografia local AES-256 e arquitetura Zero-Knowledge
 
@@ -79,7 +79,7 @@ Managing dozens of credentials, two-factor authentication (2FA) seeds and confid
 
 Unlike commercial password managers that lock built-in TOTP authenticators or file attachments behind paid tiers, 4uPass includes these capabilities free of charge for the 4u-Labs community, running on our own self-hosted infrastructure with device-side encryption.
 
-![4uPass — Password Vault, Biometrics & 2FA Authenticator](/assets/images/4upass-banner.png)
+![4uPass — Password Vault, Biometrics & 2FA Authenticator](/assets/images/4upass-banner.webp)
 
 ### 🔐 Client-side AES-256 encryption and Zero-Knowledge design
 

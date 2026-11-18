@@ -8,7 +8,7 @@ tags: [autocare, veiculos, manutencao-automotiva, controle-combustivel, calculad
 author: "Fabiano Braga // 4U.IA.BR"
 excerpt: "PWA completo para controle de custos automotivos, alertas de manutenção preventiva, cálculo de consumo km/l e calculadora Flex com backup criptografado no Google Drive do usuário."
 excerpt_en: "Comprehensive PWA for vehicle cost tracking, preventive maintenance alerts, fuel efficiency analytics, and Flex fuel calculator with encrypted backup to user's Google Drive."
-image: /assets/images/tinylab-banner.jpg
+image: /assets/images/autocare-pro.webp
 ---
 
 <div data-lang="pt" markdown="1">

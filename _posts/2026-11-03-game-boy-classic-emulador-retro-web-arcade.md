@@ -8,7 +8,7 @@ tags: [gameboy, retro-arcade, emulador-web, 8bit, save-state, controles-touch, w
 author: "Fabiano Braga // 4U.IA.BR"
 excerpt: "Emulador nostálgico de Game Boy 8-bit desenvolvido em JavaScript/Canvas com suporte a ROMs locais, salvamento de progresso (Save State), paletas monocromáticas e gamepad mobile."
 excerpt_en: "Nostalgic 8-bit Game Boy emulator crafted in modern JavaScript/Canvas with local ROM support, save states, retro green monochrome palettes, and mobile touch gamepad."
-image: /assets/images/error-404-pacman.png
+image: /assets/images/gameboy.webp
 ---
 
 <div data-lang="pt" markdown="1">

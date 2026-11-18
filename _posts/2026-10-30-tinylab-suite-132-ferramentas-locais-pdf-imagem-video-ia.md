@@ -8,7 +8,7 @@ author: "Fabiano Braga // 4U.IA.BR"
 excerpt: "Alternativa aberta, gratuita e sem anúncios ao TinyWow e iLovePDF com 159 ferramentas client-side em 7 categorias: PDF pesquisável (OCR), PDF ↔ Word/Excel/PPTX/EPUB, PSD/TIFF/ICO, recorte e bokeh com IA, vetorização SVG, timeline de vídeo, TTS e IA local via WebGPU."
 title_en: "TinyLab v2.1: 159 Local Web Tools for PDF, Image, Video, Spreadsheets, QR/Barcodes and WebGPU AI"
 excerpt_en: "An ad-free, local-first alternative to TinyWow and iLovePDF packing 159 browser tools across 7 categories: searchable PDF OCR, PDF ↔ Word/Excel/PPTX/EPUB, PSD/TIFF/ICO, AI cutout & bokeh, SVG vectorization, video timeline & SRT burner, TTS and local WebGPU AI."
-image: /assets/images/tinylab-banner.jpg
+image: /assets/images/tinylab-banner.webp
 ---
 
 <div data-lang="pt" markdown="1">
@@ -17,7 +17,7 @@ Converter uma fatura em Excel, assinar um contrato mantendo o texto vetorial, re
 
 Projetado como uma alternativa completa, bilíngue (**PT-BR / EN**), sem anúncios e instalável como **PWA com modo offline e Web Share Target**, o TinyLab combina motores **WebAssembly**, **WebGPU**, **Canvas** e **Web Workers** para transformar qualquer computador ou smartphone em um canivete suíço digital privado.
 
-![TinyLab v2.1 — 159 Ferramentas Web Livres, Rápidas & Privadas](/assets/images/tinylab-banner.jpg)
+![TinyLab v2.1 — 159 Ferramentas Web Livres, Rápidas & Privadas](/assets/images/tinylab-banner.webp)
 
 ### 📄 Estúdio PDF & E-books Profissional (35 Ferramentas)
 
@@ -56,7 +56,7 @@ Converting an invoice into Excel, signing a multi-page contract while keeping ve
 
 Designed as an open, bilingual (**PT-BR / EN**), ad-free **Progressive Web App (PWA)** with offline caching and **Web Share Target** support, TinyLab combines **WebAssembly**, **WebGPU**, **Canvas** and **Web Workers** to turn any desktop or phone into a private digital utility lab.
 
-![TinyLab v2.1 — 150 Free, Fast & Private Web Tools](/assets/images/tinylab-banner.jpg)
+![TinyLab v2.1 — 150 Free, Fast & Private Web Tools](/assets/images/tinylab-banner.webp)
 
 ### 📄 Professional PDF & E-book Studio (35 Tools)
 

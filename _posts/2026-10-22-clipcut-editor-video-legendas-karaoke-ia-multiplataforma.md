@@ -8,7 +8,7 @@ author: "Fabiano Braga // 4U.IA.BR"
 excerpt: "Editor de vídeo multiplataforma (Linux, Windows, macOS, Android, iOS e WebApp PWA) com legendas Karaokê palavra por palavra via Whisper IA local, corte automático de silêncios, zoom dinâmico e presets visuais estilo CapCut."
 title_en: "ClipCut Studio: Multiplatform Video Editor with Word-by-Word Karaoke Captions and Local AI"
 excerpt_en: "A multiplatform video editor (Linux, Windows, macOS, Android, iOS and PWA WebApp) featuring local Whisper AI word-by-word Karaoke captions, auto silence cutter, dynamic punch-in zoom and CapCut-style visual presets."
-image: /assets/images/clipcut-banner.png
+image: /assets/images/clipcut-banner.webp
 ---
 
 <div data-lang="pt" markdown="1">
@@ -17,7 +17,7 @@ Criar vídeos dinâmicos com legendas sincronizadas palavra por palavra, cortes 
 
 Disponível tanto em versões nativas de altíssima performance (escritas em **Rust + Slint + FFmpeg + Whisper.cpp** para **Linux, Windows, macOS, Android e iOS**) quanto como **WebApp Instalável (PWA)** para tablets, iPads e Chromebooks, o ClipCut traz os recursos mais pedidos do CapCut direto para o seu dispositivo.
 
-![ClipCut Studio — Editor de Vídeo & Legendas Karaokê IA](/assets/images/clipcut-banner.png)
+![ClipCut Studio — Editor de Vídeo & Legendas Karaokê IA](/assets/images/clipcut-banner.webp)
 
 ### 🎤 Legendas Karaokê Palavra por Palavra (Whisper IA Local)
 
@@ -67,7 +67,7 @@ Creating high-retention videos with word-by-word synced captions, fast breath cu
 
 Available both as ultra-fast native binaries (written in **Rust + Slint + FFmpeg + Whisper.cpp** for **Linux, Windows, macOS, Android and iOS**) and as an **Installable WebApp (PWA)** for tablets, iPads and Chromebooks, ClipCut brings the most requested CapCut workflows straight to your device.
 
-![ClipCut Studio — Video Editor & AI Karaoke Captions](/assets/images/clipcut-banner.png)
+![ClipCut Studio — Video Editor & AI Karaoke Captions](/assets/images/clipcut-banner.webp)
 
 ### 🎤 Word-by-Word Karaoke Captions (Local Whisper AI)
 
