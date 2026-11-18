@@ -28,7 +28,7 @@ O **CamObra Pro** é uma solução de engenharia de campo desenvolvida especific
 - 📄 **Exportação de Laudos em PDF A4:** Montagem instantânea de relatórios fotográficos organizados em pranchas com descritivos técnicos prontos para entrega a órgãos fiscalizadores.
 - 🛡️ **Operação 100% Offline (PWA):** Armazenamento local em IndexedDB que permite fiscalizações completas em canteiros remotos sem cobertura de sinal de internet.
 
-[Abrir o CamObra Pro no Navegador](https://4u.ia.br/app/camobra/) · [Conhecer Outras Ferramentas de Engenharia](https://github.com/4u-Labs)
+[Abrir FotoLaudo no Navegador](https://4u.ia.br/app/fotolaudo/) · [Conhecer Outras Ferramentas de Engenharia](https://github.com/4u-Labs)
 
 </div>
 
@@ -49,6 +49,6 @@ O **CamObra Pro** é uma solução de engenharia de campo desenvolvida especific
 - 📄 **Instant A4 PDF Reports:** Automated compilation of inspection photos into standardized engineering pranchas with technical notes.
 - 🛡️ **100% Offline Resilience (PWA):** Local IndexedDB persistence ensuring seamless inspections in remote rural or underground worksites without internet connectivity.
 
-[Try CamObra Pro Online](https://4u.ia.br/app/camobra/) · [Explore 4u-Labs Repositories](https://github.com/4u-Labs)
+[Try FotoLaudo Online](https://4u.ia.br/app/fotolaudo/) · [Explore 4u-Labs Repositories](https://github.com/4u-Labs)
 
 </div>

@@ -43,7 +43,7 @@ Um clássico atemporal para desafiar sua mente a qualquer hora e em qualquer lug
 
 ### 🌐 Experimente Agora Mesmo
 
-* **Acessar Aplicativo Oficial:** [**https://4u.ia.br/app/xadrez/index.html**](https://4u.ia.br/app/xadrez/index.html)
+* **Acessar Aplicativo Oficial:** [**https://4u.ia.br/app/xadrez/**](https://4u.ia.br/app/xadrez/)
 * **Catálogo de Aplicações:** [**https://4u.ia.br**](https://4u.ia.br)
 
 </div>
@@ -74,7 +74,7 @@ Designed for professionals, students, and enthusiasts looking for reliable, fric
 
 ### 🌐 Try It Now in Your Browser
 
-* **Launch Official Application:** [**https://4u.ia.br/app/xadrez/index.html**](https://4u.ia.br/app/xadrez/index.html)
+* **Launch Official Application:** [**https://4u.ia.br/app/xadrez/**](https://4u.ia.br/app/xadrez/)
 * **Explore Full Ecosystem:** [**https://4u.ia.br**](https://4u.ia.br)
 
 </div>

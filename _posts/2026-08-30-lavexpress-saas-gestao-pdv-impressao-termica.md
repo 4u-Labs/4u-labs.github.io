@@ -25,4 +25,4 @@ O LavExpress implementa a emissão de bytes binários puros **ESC/POS**:
 - Alinhamento de colunas com largura de 48 ou 42 colunas de texto sem conversão para imagem (o que garante corte de papel instantâneo e impressão rápida em menos de 0.2 segundos).
 
 Experimente a demonstração do LavExpress:  
-👉 [https://4u.ia.br/app/demolavanderia/](https://4u.ia.br/app/demolavanderia/)
+👉 [https://4u.ia.br/saas/sist/lavanderia/](https://4u.ia.br/saas/sist/lavanderia/)

@@ -28,7 +28,7 @@ O **4uCapture** é a suíte definitiva para captura de tela, anotações técnic
 - 🧠 **OCR Local PT/EN (Tesseract WASM):** Reconhecimento óptico de caracteres em português e inglês executado 100% no dispositivo do usuário via WebAssembly, sem enviar nenhum byte para servidores externos.
 - 💾 **Exportação & Integração:** Salve em PNG de alta definição, WebP otimizado ou copie instantaneamente para a área de transferência do sistema operacional.
 
-[Experimentar o 4uCapture Online](https://4u.ia.br/app/4uCapture/) · [Explorar o Perfil 4u-Labs](https://github.com/4u-Labs)
+[Instalar PrintScreen Editor & Capture](https://chromewebstore.google.com/detail/printscreen-editor/phaefdkhihopjdjlnjjkhdohjloacaci) · [Explorar o Perfil 4u-Labs](https://github.com/4u-Labs)
 
 </div>
 
@@ -49,6 +49,6 @@ O **4uCapture** é a suíte definitiva para captura de tela, anotações técnic
 - 🧠 **Offline Local OCR (Tesseract WASM):** Instant optical character recognition in Portuguese and English running entirely client-side via WebAssembly without external server uploads.
 - 💾 **Quick Export & Copy:** Save to crystal-clear PNG, lightweight WebP, or copy directly to your OS clipboard in one stroke.
 
-[Try 4uCapture Online](https://4u.ia.br/app/4uCapture/) · [Explore 4u-Labs](https://github.com/4u-Labs)
+[Install PrintScreen Editor & Capture](https://chromewebstore.google.com/detail/printscreen-editor/phaefdkhihopjdjlnjjkhdohjloacaci) · [Explore 4u-Labs](https://github.com/4u-Labs)
 
 </div>
