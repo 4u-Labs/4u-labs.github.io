@@ -15,7 +15,7 @@ image: /assets/images/camobra-pro.webp
 
 O **CamObra Pro** é uma solução de engenharia de campo desenvolvida especificamente para fiscalização de obras civis, infraestrutura viária, concessões de rodovias e perícias técnicas. Operando como Progressive Web App (PWA) de alto desempenho, o aplicativo funciona diretamente na câmera do smartphone ou tablet, permitindo o registro fotográfico com carimbo pericial inviolável, telemetria completa e geração imediata de laudos técnicos em pranchas A4.
 
-[Acessar CamObra Pro](https://4u.ia.br/app/camobra/) · [Repositório GitHub](https://github.com/4u-Labs/camobra) · [Ecossistema 4U.IA.BR](https://4u.ia.br/)
+[Acessar FotoLaudo (evolução do CamObra)](https://4u.ia.br/app/fotolaudo/) · [Repositório GitHub](https://github.com/4u-Labs/fotolaudo) · [Ecossistema 4U.IA.BR](https://4u.ia.br/)
 
 ![CamObra Pro — Câmera Técnica de Engenharia e Laudos](/assets/images/camobra-pro.webp)
 
@@ -36,7 +36,7 @@ O **CamObra Pro** é uma solução de engenharia de campo desenvolvida especific
 
 **CamObra Pro** is a field engineering camera tailored for civil inspections, highway concessions, industrial installations, and forensic site audits. Engineered as a high-performance Progressive Web App (PWA), it runs directly within mobile browsers, enabling field inspectors to record photographs with indelible forensic metadata, real-time spatial telemetry, and automated A4 inspection sheets.
 
-[Open CamObra Pro](https://4u.ia.br/app/camobra/) · [Source Code on GitHub](https://github.com/4u-Labs/camobra) · [4U.IA.BR Ecosystem](https://4u.ia.br/)
+[Open FotoLaudo (CamObra successor)](https://4u.ia.br/app/fotolaudo/) · [Source Code on GitHub](https://github.com/4u-Labs/fotolaudo) · [4U.IA.BR Ecosystem](https://4u.ia.br/)
 
 ![CamObra Pro — Field Engineering Camera & Reports](/assets/images/camobra-pro.webp)
 
