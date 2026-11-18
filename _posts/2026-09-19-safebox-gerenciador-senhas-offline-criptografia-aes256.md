@@ -43,7 +43,7 @@ Seus dados. Seu cofre. Seu controle.
 
 ### 🌐 Experimente Agora Mesmo
 
-* **Acessar Aplicativo Oficial:** [**https://4u.ia.br/app/safebox/**](https://4u.ia.br/app/safebox/)
+* **Acessar Aplicativo Oficial (evoluído para SafePass v2):** [**https://4u.ia.br/app/safepass/**](https://4u.ia.br/app/safepass/)
 * **Catálogo de Aplicações:** [**https://4u.ia.br**](https://4u.ia.br)
 
 </div>
@@ -74,7 +74,7 @@ Designed for professionals, students, and enthusiasts looking for reliable, fric
 
 ### 🌐 Try It Now in Your Browser
 
-* **Launch Official Application:** [**https://4u.ia.br/app/safebox/**](https://4u.ia.br/app/safebox/)
+* **Launch Official Application (evolved into SafePass v2):** [**https://4u.ia.br/app/safepass/**](https://4u.ia.br/app/safepass/)
 * **Explore Full Ecosystem:** [**https://4u.ia.br**](https://4u.ia.br)
 
 </div>
