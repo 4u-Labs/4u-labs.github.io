@@ -15,7 +15,7 @@ image: /assets/images/4ucapture.webp
 
 O **4uCapture** é a suíte definitiva para captura de tela, anotações técnicas e extração óptica de texto (OCR) diretamente no navegador Chromium (Chrome, Edge, Brave) e através do seu **Web Studio** multiplataforma. Construído sob a arquitetura Manifest V3 com foco absoluto em privacidade e processamento client-side, o 4uCapture elimina a dependência de serviços em nuvem para tarefas essenciais de documentação e suporte visual.
 
-[Acessar 4uCapture Web Studio](https://4u.ia.br/app/4uCapture/) · [Código-Fonte no GitHub](https://github.com/4u-Labs/4ucapture) · [Ecossistema 4U.IA.BR](https://4u.ia.br/)
+[Instalar PrintScreen Editor & Capture (Chrome Web Store)](https://chromewebstore.google.com/detail/printscreen-editor/phaefdkhihopjdjlnjjkhdohjloacaci) · [Código-Fonte no GitHub](https://github.com/4u-Labs/printscreencapture) · [Ecossistema 4U.IA.BR](https://4u.ia.br/)
 
 ![4uCapture — Captura de Tela, Marcações e OCR Local](/assets/images/4ucapture.webp)
 
@@ -36,7 +36,7 @@ O **4uCapture** é a suíte definitiva para captura de tela, anotações técnic
 
 **4uCapture** is the definitive suite for screen capture, technical annotation, and optical character recognition (OCR) running directly within Chromium-based browsers (Chrome, Edge, Brave) and via its cross-platform **Web Studio**. Designed under the Manifest V3 architecture with a strict client-side privacy model, 4uCapture eliminates cloud reliance for documentation, troubleshooting, and visual workflows.
 
-[Open 4uCapture Web Studio](https://4u.ia.br/app/4uCapture/) · [Source Code on GitHub](https://github.com/4u-Labs/4ucapture) · [4U.IA.BR Ecosystem](https://4u.ia.br/)
+[Install PrintScreen Editor & Capture (Chrome Web Store)](https://chromewebstore.google.com/detail/printscreen-editor/phaefdkhihopjdjlnjjkhdohjloacaci) · [Source Code on GitHub](https://github.com/4u-Labs/printscreencapture) · [4U.IA.BR Ecosystem](https://4u.ia.br/)
 
 ![4uCapture — Screen Capture, Annotations and Local OCR](/assets/images/4ucapture.webp)
 
